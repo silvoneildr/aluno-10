@@ -1,0 +1,42 @@
+$positive: #3F51B5;
+$SIDEMENU_TOP: #3F51B5;
+$SIDEMENU_BOTTOM: #3F51B5;
+$SIDEMENU_TRANSPARENCY: rgba(255,255,255,0.4);
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+@import "../www/lib/ionic/scss";
+.side-menu-item {
+	background: none;
+	color: white;
+	font-weight: 300px;
+	border: 0px;
+	.item-content {
+		background: none;
+		&.activate {
+			background: $SIDEMENU-TRANSPARENCY;
+		}
+		
+	}
+	&.active-page-highlight {
+		.item-content {
+			background: $SIDEMENU-TRANSPARENCY;
+		}
+		
+	}
+}
+.side-menu-item-avatar {
+	background: none;
+	border: 0px;
+}
+
+.side-menu-gradient {
+	background-color: #3F51B5;
+}
+
+.profile-image {
+	img {
+		border-radius: 50%;
+		margin: 9px;
+		border: 2px solid $SIDEMENU_TRANSPARENCY;
+	}
+	
+}

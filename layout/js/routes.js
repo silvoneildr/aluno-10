@@ -10,7 +10,7 @@ angular.module('app.routes', [])
     
   
 
-      .state('menu.alunos', {
+      .state('aluno10.alunos', {
     url: '/page1',
     views: {
       'side-menu21': {
@@ -20,7 +20,7 @@ angular.module('app.routes', [])
     }
   })
 
-  .state('menu.escolas', {
+  .state('aluno10.escolas', {
     url: '/page2',
     views: {
       'side-menu21': {
@@ -30,7 +30,7 @@ angular.module('app.routes', [])
     }
   })
 
-  .state('menu.disciplinas', {
+  .state('aluno10.disciplinas', {
     url: '/page3',
     views: {
       'side-menu21': {
@@ -40,10 +40,10 @@ angular.module('app.routes', [])
     }
   })
 
-  .state('menu', {
+  .state('aluno10', {
     url: '/side-menu21',
-    templateUrl: 'templates/menu.html',
-    controller: 'menuCtrl'
+    templateUrl: 'templates/aluno10.html',
+    controller: 'aluno10Ctrl'
   })
 
 $urlRouterProvider.otherwise('/side-menu21/page1')
