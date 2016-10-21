@@ -10,14 +10,15 @@ angular.module('app', [
     'app.db.dao',
     'app.controllers', 
     'app.directives',
-    'app.services'
+    'app.services',
+    'app.cadform'
 ])
 .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
     
     .state('aluno10', {
         abstract: true,
-        templateUrl: 'templates/aluno10.html',
+        templateUrl: 'app/views/aluno10.html',
         controller: 'aluno10Ctrl'
     })
     
@@ -25,7 +26,7 @@ angular.module('app', [
         url: '/Alunos',
         views: {
           'side-menu21': {
-            templateUrl: 'templates/alunos.html',
+            templateUrl: 'app/views/alunos.html',
             controller: 'alunosCtrl'
           }
         }
@@ -35,7 +36,7 @@ angular.module('app', [
         url: '/page2',
         views: {
           'side-menu21': {
-            templateUrl: 'templates/escolas.html',
+            templateUrl: 'app/views/escolas.html',
             controller: 'escolasCtrl'
           }
         }
@@ -45,13 +46,13 @@ angular.module('app', [
         url: '/page3',
         views: {
           'side-menu21': {
-            templateUrl: 'templates/disciplinas.html',
+            templateUrl: 'app/views/disciplinas.html',
             controller: 'disciplinasCtrl'
           }
         }
     });
     
-    $urlRouterProvider.otherwise('/page1');
+    $urlRouterProvider.otherwise('/Alunos');
 })
 
 .run(function($ionicPlatform) {

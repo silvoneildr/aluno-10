@@ -3,11 +3,8 @@ angular.module('app.controllers', [])
 .controller('alunosCtrl', ['$scope', '$stateParams', 
 function ($scope, $stateParams, DbDaoFact) {
 //    $scope.alunos = DbDaoFact.getAlunos;
-    
-    
+        
     $scope.addRecord = function() {
-        $scope.record = { tipoPessoa: 'J', vendedorId: vddId };
-        $scope.inserting = true;
         $scope.modal.show();
     }
 

@@ -1,0 +1,19 @@
+<form name="cadform" ng-submit="save()" novalidate>
+    <ion-header-bar class="bar-positive">
+        <h1 class="title">{{title}}</h1>
+    </ion-header-bar>
+    <div ng-if="isTab">
+        <ng-transclude></ng-transclude>
+    </div>
+    
+    <div ng-if="!isTab">
+        <ion-content delegate-handle="content-form">
+            <ng-transclude></ng-transclude>
+        </ion-content>
+    </div>
+    
+    <ion-footer-bar class="bar-light">
+        <button type="button" class="button button-stable button-outline" ng-click="close()">Cancelar</button>
+        <button type="submit" class="button button-positive">Confirmar</button>
+    </ion-footer-bar>
+</form>
