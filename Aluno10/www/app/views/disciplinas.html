@@ -1,12 +1,19 @@
-<ion-view title="Disciplinas" id="page3">
+<ion-view title="Disciplinas">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-plus"></button>
+    </ion-nav-buttons>
     <ion-content padding="true" class="has-header">
-        <ion-list id="disciplinas-list6">
-            <ion-item class="item-icon-left" id="disciplinas-list-item10">
-                <i class="icon ion-ionic"></i>Item</ion-item>
-            <ion-item class="item-icon-left" id="disciplinas-list-item11">
-                <i class="icon ion-ionic"></i>Item</ion-item>
-            <ion-item class="item-icon-left" id="disciplinas-list-item12">
-                <i class="icon ion-ionic"></i>Item</ion-item>
+        <ion-list>
+            <ion-item class="item-avatar  side-menu-item-avatar" collection-repeat="item in disciplinas.data">
+                <img src="img/VGUa3gYSle5cSNqKCmig_images.png">
+                <h2>Item</h2>
+            </ion-item>
         </ion-list>
     </ion-content>
+    <ion-footer-bar class="item-input-inset bar-positive">
+        <label class="item-input-wrapper">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input type="search" placeholder="Pesquisar..." ng-model="search">
+        </label>
+    </ion-footer-bar>   
 </ion-view>
