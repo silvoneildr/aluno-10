@@ -8,10 +8,12 @@
 angular.module('app', [
     'ionic',
     'app.db.dao',
+    'app.cadform',
+    'app.utils.popup',
+    'app.alunos.lista',
     'app.controllers', 
     'app.directives',
-    'app.services',
-    'app.cadform'
+    'app.services'
 ])
 .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider

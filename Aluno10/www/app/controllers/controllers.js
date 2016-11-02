@@ -1,14 +1,18 @@
 angular.module('app.controllers', [])
   
-.controller('alunosCtrl', ['$scope', '$stateParams', 
-function ($scope, $stateParams, DbDaoFact) {
-//    $scope.alunos = DbDaoFact.getAlunos;
+// .controller('alunosCtrl', ['$scope', '$stateParams',
+// function ($scope, $stateParams,$window, DbDaoFact, UtilsPopupFact) {
+//     // $scope.alunos = DbDaoFact.getAlunos();
         
-    $scope.addRecord = function() {
-        $scope.modal.show();
-    }
+//     UtilsPopupFact.initModal('app/views/cadalunos.html', $scope);
+//     // UtilsPopupFact.initPopMenu('./app/views/popover.tmpl.html', $scope);   
 
-}])
+//     $scope.addRecord = function() {
+//     	$scope.inserting = true;
+//         $scope.modal.show();
+//     }
+
+// }])
    
 .controller('escolasCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function

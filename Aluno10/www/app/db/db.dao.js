@@ -1,5 +1,5 @@
 angular.module('app.db.dao',[]).factory('DbDaoFact', function() {
-    var db = new DbFactory(DbProxies.SQLITE, 'app'),
+    var db = new DbFactory(DbProxies.LOCALSTORAGE),
         alunos = db.createDataSet('alunos');
     
     return{
