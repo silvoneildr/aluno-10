@@ -33,7 +33,7 @@ angular.module('app', [
     })
 
     .state('aluno10.escolas', {
-        url: '/page2',
+        url: '/Escolas',
         views: {
           'side-menu21': {
             templateUrl: 'app/views/escolas.html',
@@ -43,11 +43,21 @@ angular.module('app', [
     })
 
     .state('aluno10.disciplinas', {
-        url: '/page3',
+        url: '/Disciplinas',
         views: {
           'side-menu21': {
             templateUrl: 'app/views/disciplinas.html',
             controller: 'disciplinasCtrl'
+          }
+        }
+    })
+
+    .state('aluno10.configuracao', {
+        url: '/Configuracao',
+        views: {
+          'side-menu21': {
+            templateUrl: 'app/views/configuracao.html',
+            controller: 'configuracaoCtrl'
           }
         }
     });

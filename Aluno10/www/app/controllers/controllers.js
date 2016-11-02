@@ -33,3 +33,7 @@ function ($scope, $stateParams) {
 
 
 }])
+
+.controller('configuracaoCtrl',['$scope', '$stateParams', function($scope, $stateParams){
+
+}])
