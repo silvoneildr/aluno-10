@@ -1,0 +1,41 @@
+<!--  <ion-modal-view>
+	<ion-header-bar class="bar-positive">
+		<h1 class="title">Cadastrar Aluno</h1>
+		<button class="button button-clear button-primary">Cancelar</button>
+	</ion-header-bar>
+	<ion-content>
+	</ion-content>
+</ion-modal-view> -->
+
+<!-- 
+ <script id="app/views/cad_alunos.html" type="text/ng-template"> -->
+ 	<ion-modal-view>
+ 		<ion-header-bar class="bar bar-header bar-positive">
+ 			<h1 class="title">Cadastro de Aluno</h1>
+ 			<button ng-click="closeModal()" class="button button-clear button-primary">Cancelar</button>
+ 		</ion-header-bar>
+ 		<ion-content class="padding">
+ 			<div class="list">
+ 				<label class="item item-input">
+ 					<span class="input-label">Nome</span>
+ 					<input type="text" ng-model="aluno.nome">
+ 				</label>
+ 				<div class="radio-buttons">
+ 					<ion-radio-button placeholder="Sexo">
+ 						<ion-radio ng-model="sexo" ng-value="'M'">Masculino</ion-radio>
+						<ion-radio ng-model="sexo" ng-value="'F'">Feminino</ion-radio>
+ 					</ion-radio-button>
+ 				</div>
+ 				<label class="item item-input">
+ 					<span class="input-label">Endereço</span>
+ 					<input type="text" ng-model="aluno.endereco">
+ 				</label>
+ 				<label class="item item-input">
+ 					<span class="input-label">Cidade</span>
+ 					<input type="text" ng-model="aluno.cidade">
+ 				</label>
+ 				<button ng-click="addAluno(aluno)" class="button button-full button-positive">Cadastrar</button>
+ 			</div>
+ 		</ion-content>
+ 	</ion-modal-view>     
+<!--  </script> -->
