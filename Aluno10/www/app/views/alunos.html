@@ -1,14 +1,16 @@
 <ion-view title="Alunos" ng-controller="alunosCtrl">
     <ion-nav-buttons side="right">
-        <button class="button button-icon button-clear ion-plus" ng-click="addRecord()"></button>
+        <button class="button button-icon button-clear ion-plus-round" ng-click="addRecord()"></button>
     </ion-nav-buttons>
     <ion-content padding="true" class="has-header">
         <ion-list id="alunos-list8">
-            <ion-item class="item-avatar  side-menu-item-avatar" ng-repeat="item in alunos.data">
-                <img src="img/{{item.sexo == 'M' ? 'avatar3.png' : 'avatar2.png'}}">
-                <h2>{{item.nome}}</h2>
-                <p>{{item.endereco}}, {{item.cidade}}</p>
-                <button ng-click="deleteRecord(item)">Deletar</button>
+            <ion-item class="item-avatar  side-menu-item-avatar" ng-repeat="aluno in alunos.data" ng-click="editRecord(aluno)">
+                <img src="img/{{aluno.sexo == 'M' ? 'avatar3.png' : 'avatar2.png'}}">
+                <h2>{{aluno.nome}}</h2>
+                <p>{{aluno.endereco}}, {{aluno.cidade}}</p>
+                <ion-option-button class="button-stable" ng-click="deleteRecord(aluno)">
+                    Excluir
+                </ion-option-button>
             </ion-item>
         </ion-list>
     </ion-content>

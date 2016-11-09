@@ -17,6 +17,7 @@ angular.module('app.alunos.lista', [])
     
     $scope.addRecord = function() {
         $scope.aluno = {};
+        $scope.inserting = true;
         $scope.modal.show();
     };
     
@@ -34,6 +35,12 @@ angular.module('app.alunos.lista', [])
             $scope.alunos.delete(aluno);
             $scope.alunos.post();
         })
+    };
+    
+    $scope.editRecord = function(aluno){
+        $scope.aluno =  OjsUtils.cloneObject(aluno);
+        $scope.inserting = false;
+        $scope.modal.show();
     };
 
 });
