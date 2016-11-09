@@ -11,6 +11,7 @@ angular.module('app', [
     'app.cadform',
     'app.utils.popup',
     'app.alunos.lista',
+    'app.utils.msg',
     'app.controllers', 
     'app.directives',
     'app.services'
