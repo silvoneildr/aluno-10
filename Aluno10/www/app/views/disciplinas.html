@@ -1,12 +1,15 @@
-<ion-view title="Disciplinas">
+<ion-view title="Disciplinas" ng-controller="disciplinasCtrl">
     <ion-nav-buttons side="right">
-        <button class="button button-icon button-clear ion-plus"></button>
+        <button class="button button-icon button-clear ion-plus-round" ng-click="addRecord()"></button>
     </ion-nav-buttons>
     <ion-content padding="true" class="has-header">
-        <ion-list>
-            <ion-item class="item-avatar  side-menu-item-avatar" collection-repeat="item in disciplinas.data">
-                <img src="img/VGUa3gYSle5cSNqKCmig_images.png">
-                <h2>Item</h2>
+        <ion-list id="disciplinas-list">
+            <ion-item ng-repeat="disciplina in disciplinas.data" ng-click="editRecord(disciplina)">
+                <h2>{{disciplina.nome}}</h2>
+                <p>{{disciplina.descricao}}</p>
+                <ion-option-button class="button-stable" ng-click="deleteRecord(disciplina)">
+                    Excluir
+                </ion-option-button>
             </ion-item>
         </ion-list>
     </ion-content>
