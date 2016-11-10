@@ -32,7 +32,7 @@ angular.module('app.disciplinas.lista', [])
     $scope.deleteRecord = function(disciplina){
         UtilsMsgFact.confirm('Deseja excluir a disciplina?').then(function(res) {
             if (!res) return;
-            $scope.disciplinas.delete(escola);
+            $scope.disciplinas.delete(disciplina);
             $scope.disciplinas.post();
         })
     };

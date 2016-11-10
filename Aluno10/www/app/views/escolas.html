@@ -7,7 +7,7 @@
             <ion-item ng-repeat="escola in escolas.data" ng-click="editRecord(escola)">
                 <h2>{{escola.nome}}</h2>
                 <p>{{escola.endereco}}, {{escola.cidade}}</p>
-                <ion-option-button class="button-stable" ng-click="deleteRecord(escola)">
+                <ion-option-button class="button-assertive" ng-click="deleteRecord(escola)">
                     Excluir
                 </ion-option-button>
             </ion-item>

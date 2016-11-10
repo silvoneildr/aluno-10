@@ -33,7 +33,7 @@ angular.module('app.escolas.lista', [])
         UtilsMsgFact.confirm('Deseja excluir a escola?').then(function(res) {
             if (!res) return;
             $scope.escolas.delete(escola);
-            $scope.alunos.post();
+            $scope.escolas.post();
         })
     };
     

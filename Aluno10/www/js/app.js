@@ -22,13 +22,13 @@ angular.module('app', [
 .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
     
-    .state('aluno10', {
+    .state('layout', {
         abstract: true,
-        templateUrl: 'app/views/aluno10.html',
+        templateUrl: 'app/views/layout.html',
         controller: 'layoutCtrl'
     })
     
-    .state('aluno10.alunos', {
+    .state('layout.alunos', {
         url: '/Alunos',
         views: {
           'side-menu21': {
@@ -38,7 +38,7 @@ angular.module('app', [
         }
     })
 
-    .state('aluno10.escolas', {
+    .state('layout.escolas', {
         url: '/Escolas',
         views: {
           'side-menu21': {
@@ -48,7 +48,7 @@ angular.module('app', [
         }
     })
 
-    .state('aluno10.disciplinas', {
+    .state('layout.disciplinas', {
         url: '/Disciplinas',
         views: {
           'side-menu21': {
@@ -58,7 +58,7 @@ angular.module('app', [
         }
     })
 
-    .state('aluno10.configuracao', {
+    .state('layout.configuracao', {
         url: '/Configuracao',
         views: {
           'side-menu21': {
