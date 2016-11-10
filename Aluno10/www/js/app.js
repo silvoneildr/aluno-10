@@ -13,8 +13,9 @@ angular.module('app', [
     'app.alunos.lista',
     'app.escolas.lista',
     'app.disciplinas.lista',
+    'app.configuracao',
+    'app.layout',
     'app.utils.msg',
-    'app.controllers', 
     'app.directives',
     'app.services'
 ])
@@ -24,7 +25,7 @@ angular.module('app', [
     .state('aluno10', {
         abstract: true,
         templateUrl: 'app/views/aluno10.html',
-        controller: 'aluno10Ctrl'
+        controller: 'layoutCtrl'
     })
     
     .state('aluno10.alunos', {
