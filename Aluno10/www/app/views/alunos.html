@@ -5,7 +5,7 @@
     <ion-content padding="true" class="has-header">
         <ion-list id="alunos-list8">
             <ion-item class="item-avatar  side-menu-item-avatar" ng-repeat="aluno in alunos.data" ng-click="editRecord(aluno)">
-                <img src="img/{{aluno.sexo == 'M' ? 'avatar3.png' : 'avatar2.png'}}">
+                <img ng-src="{{'img/' + (aluno.sexo == 'M' ? 'avatar3.png' : 'avatar2.png')}}">
                 <h2>{{aluno.nome}}</h2>
                 <p>{{aluno.endereco}}, {{aluno.cidade}}</p>
                 <ion-option-button class="button-stable" ng-click="deleteRecord(aluno)">

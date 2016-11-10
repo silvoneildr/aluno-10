@@ -1,7 +1,7 @@
 angular.module('app.disciplinas.lista', [])
 .controller('disciplinasCtrl', function($scope, $ionicModal, DbDaoFact, UtilsMsgFact) {
 
-    $ionicModal.fromTemplateUrl('',{
+    $ionicModal.fromTemplateUrl('app/views/cad_disciplinas.html',{
         scope: $scope
     }).then(function(modal){
         $scope.modal = modal;
@@ -21,7 +21,7 @@ angular.module('app.disciplinas.lista', [])
         $scope.modal.show();
     };
     
-    $scope.disciplinas = DbDaoFact.getDisciplina();
+    $scope.disciplinas = DbDaoFact.getDisciplinas();
     
     $scope.saveRecord = function(){
         $scope.disciplinas.save($scope.disciplina);
