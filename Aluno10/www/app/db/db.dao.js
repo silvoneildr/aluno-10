@@ -2,7 +2,8 @@ angular.module('app.db.dao',[]).factory('DbDaoFact', function() {
     var db = new DbFactory(DbProxies.LOCALSTORAGE),
         alunos = db.createDataSet('alunos'),
         escolas = db.createDataSet('escolas'),
-        disciplinas = db.createDataSet('disciplinas');
+        disciplinas = db.createDataSet('disciplinas'),
+        turmas = db.createDataSet('turmas');
     
     return {
         getAlunos: function() {
@@ -13,6 +14,9 @@ angular.module('app.db.dao',[]).factory('DbDaoFact', function() {
         },
         getDisciplinas: function() {
             return disciplinas.open();
-        }                
+        },
+        getTurmas: function(){
+            return turmas.open();
+        }
     }
 });

@@ -9747,3 +9747,10 @@ a.button {
 /*    border-radius: 80%;*/
     color: #3F51B5;
 }
+
+.item-button-right .button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+}

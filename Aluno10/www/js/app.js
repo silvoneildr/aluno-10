@@ -13,6 +13,7 @@ angular.module('app', [
     'app.alunos.lista',
     'app.escolas.lista',
     'app.disciplinas.lista',
+    'app.turmas.lista',
     'app.configuracao',
     'app.layout',
     'app.utils.msg',
@@ -54,6 +55,16 @@ angular.module('app', [
           'side-menu21': {
             templateUrl: 'app/views/disciplinas.html',
             controller: 'disciplinasCtrl'
+          }
+        }
+    })
+
+    .state('layout.turmas', {
+        url: '/Turmas',
+        views: {
+          'side-menu21': {
+            templateUrl: 'app/views/turmas.html',
+            controller: 'turmasCtrl'
           }
         }
     })

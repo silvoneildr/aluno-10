@@ -1,13 +1,25 @@
-<ion-popover-view style="height: {{(56 * 2) + 'px'}}" style="margin:0;padding:0">
+<ion-popover-view style="height: {{(52 * 5) + 'px'}}" style="margin:0;padding:0">
     <ion-content style="margin:0;padding:0">
         <div class="list">
+            <a class="item item-icon-left">
+                <i class="icon ion-ios-list-outline"></i>
+                Alunos da Turma
+            </a>
+            <a class="item item-icon-left">
+                <i class="icon ion-calendar"></i>
+                Frequência
+            </a>
+            <a class="item item-icon-left">
+                <i class="icon ion-clipboard"></i>
+                Notas
+            </a>
             <a class="item item-icon-left" ng-click="editRecord()">
                 <i class="icon ion-edit"></i>
-                Editar
+                Editar Turma
             </a>
             <a class="item item-icon-left" ng-click="deleteRecord()">
                 <i class="icon ion-trash-a"></i>
-                Excluir
+                Excluir Turma
             </a>
         </div>
     </ion-content>
