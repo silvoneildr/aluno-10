@@ -29,7 +29,11 @@ angular.module('app.turmas.lista', [])
         $scope.turma =  OjsUtils.cloneObject(turma);
         $scope.inserting = false;
         $scope.popover.show(event);
-    } 
+    }
+    
+    $scope.closePopover = function(){
+        $scope.popover.hide();
+    }
     
     $scope.saveRecord = function(){
         $scope.turmas.save($scope.turma);
@@ -38,6 +42,7 @@ angular.module('app.turmas.lista', [])
     };
     
     $scope.deleteRecord = function(turma){
+        $scope.closePopover();
         UtilsMsgFact.confirm('Deseja excluir a turma?').then(function(res) {
             if (!res) return;
             $scope.turmas.delete(turma);
@@ -45,9 +50,8 @@ angular.module('app.turmas.lista', [])
         })
     };
     
-    $scope.editRecord = function(turma){
-        // $scope.turma =  OjsUtils.cloneObject(turma);
-        // $scope.inserting = false;
+    $scope.editRecord = function(){
+        $scope.closePopover();
         $scope.modal.show();
     };
 });
