@@ -1,7 +1,7 @@
 angular.module('app.turmas.lista', [])
-.controller('turmasCtrl', function($scope, $ionicModal, DbDaoFact, UtilsMsgFact, UtilsPopupFact) {
+.controller('turmasCtrl', function($scope, $state, $ionicModal, DbDaoFact, UtilsMsgFact, UtilsPopupFact) {
 	
-	$ionicModal.fromTemplateUrl('app/views/cad_turmas.html',{
+	$ionicModal.fromTemplateUrl('app/views/cad_disciplinas.html',{
         scope: $scope
     }).then(function(modal){
         $scope.modal = modal;
@@ -16,12 +16,16 @@ angular.module('app.turmas.lista', [])
     };
     
     $scope.addRecord = function() {
-        $scope.turma = {};
-        $scope.inserting = true;
-        $scope.modal.show();
+        $state.go('layout.cad_turmas');
     };
     
     $scope.turmas = DbDaoFact.getTurmas();
+    
+    $scope.addDisciplina = function(){
+        $scope.disciplina = {};
+        $scope.inserting = true;
+        $scope.modal.show();
+    };
 
     UtilsPopupFact.initPopMenu('app/views/popover.tmpl.html', $scope);
 

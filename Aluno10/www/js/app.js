@@ -68,6 +68,16 @@ angular.module('app', [
           }
         }
     })
+    
+        .state('layout.cad_turmas', {
+        url: '/CadTurmas',
+        views: {
+          'side-menu21': {
+            templateUrl: 'app/views/cad_turmas.html',
+            controller: 'turmasCtrl'
+          }
+        }
+    })
 
     .state('layout.configuracao', {
         url: '/Configuracao',
