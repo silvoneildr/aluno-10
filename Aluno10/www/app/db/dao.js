@@ -1,4 +1,5 @@
-angular.module('app.db.dao',[]).factory('DbDaoFact', function() {
+angular.module('app.dao',[])
+    .factory('daoFactory', function() {
     var db = new DbFactory(DbProxies.LOCALSTORAGE),
         alunos = db.createDataSet('alunos'),
         escolas = db.createDataSet('escolas'),

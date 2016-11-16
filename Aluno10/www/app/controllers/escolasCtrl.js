@@ -1,5 +1,5 @@
 angular.module('app.escolas.lista', [])
-.controller('escolasCtrl', function($scope, $ionicModal, DbDaoFact, UtilsMsgFact) {
+.controller('escolasCtrl', function($scope, $ionicModal, daoFactory, msgFactory) {
 
     $ionicModal.fromTemplateUrl('app/views/cad_escolas.html',{
         scope: $scope
@@ -21,7 +21,7 @@ angular.module('app.escolas.lista', [])
         $scope.modal.show();
     };
     
-    $scope.escolas = DbDaoFact.getEscolas();
+    $scope.escolas = daoFactory.getEscolas();
     
     $scope.saveRecord = function(){
         $scope.escolas.save($scope.escola);
@@ -30,7 +30,7 @@ angular.module('app.escolas.lista', [])
     };
     
     $scope.deleteRecord = function(escola){
-        UtilsMsgFact.confirm('Deseja excluir a escola?').then(function(res) {
+        msgFactory.confirm('Deseja excluir a escola?').then(function(res) {
             if (!res) return;
             $scope.escolas.delete(escola);
             $scope.escolas.post();

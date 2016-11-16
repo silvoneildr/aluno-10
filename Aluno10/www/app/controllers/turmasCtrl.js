@@ -1,5 +1,5 @@
 angular.module('app.turmas.lista', [])
-.controller('turmasCtrl', function($scope, $state, $ionicModal, DbDaoFact, UtilsMsgFact, UtilsPopupFact) {
+.controller('turmasCtrl', function($scope, $state, $ionicModal, daoFactory, msgFactory, popupFactory) {
 	
 	$ionicModal.fromTemplateUrl('app/views/cad_disciplinas.html',{
         scope: $scope
@@ -19,7 +19,7 @@ angular.module('app.turmas.lista', [])
         $state.go('layout.cad_turmas');
     };
     
-    $scope.turmas = DbDaoFact.getTurmas();
+    $scope.turmas = daoFactory.getTurmas();
     
     $scope.addDisciplina = function(){
         $scope.disciplina = {};
@@ -27,7 +27,7 @@ angular.module('app.turmas.lista', [])
         $scope.modal.show();
     };
 
-    UtilsPopupFact.initPopMenu('app/views/popover.tmpl.html', $scope);
+    popupFactory.startPopup('app/views/popup_turmas.html', $scope);
 
     $scope.showPopup = function(turma, event) {
         $scope.turma =  OjsUtils.cloneObject(turma);
@@ -47,7 +47,7 @@ angular.module('app.turmas.lista', [])
     
     $scope.deleteRecord = function(turma){
         $scope.closePopover();
-        UtilsMsgFact.confirm('Deseja excluir a turma?').then(function(res) {
+        msgFactory.confirm('Deseja excluir a turma?').then(function(res) {
             if (!res) return;
             $scope.turmas.delete(turma);
             $scope.turmas.post();

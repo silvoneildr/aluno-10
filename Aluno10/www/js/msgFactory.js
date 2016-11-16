@@ -1,5 +1,5 @@
-angular.module('app.utils.msg', [])
-.factory('UtilsMsgFact', function($ionicPopup) {
+angular.module('app.mensagens', [])
+.factory('msgFactory', function($ionicPopup) {
     return {
         alert: function(msg, callback) {
             $ionicPopup.alert({

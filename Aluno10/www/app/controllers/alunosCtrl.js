@@ -1,5 +1,5 @@
 angular.module('app.alunos.lista', [])
-.controller('alunosCtrl', function($scope, $ionicModal, DbDaoFact, UtilsMsgFact) {
+.controller('alunosCtrl', function($scope, $ionicModal, daoFactory, msgFactory) {
 
     $ionicModal.fromTemplateUrl('app/views/cad_alunos.html',{
         scope: $scope
@@ -21,7 +21,7 @@ angular.module('app.alunos.lista', [])
         $scope.modal.show();
     };
     
-    $scope.alunos = DbDaoFact.getAlunos();
+    $scope.alunos = daoFactory.getAlunos();
     
     $scope.saveRecord = function(){
         $scope.alunos.save($scope.aluno);
@@ -30,7 +30,7 @@ angular.module('app.alunos.lista', [])
     };
     
     $scope.deleteRecord = function(aluno){
-        UtilsMsgFact.confirm('Deseja excluir o aluno?').then(function(res) {
+        msgFactory.confirm('Deseja excluir o aluno?').then(function(res) {
             if (!res) return;
             $scope.alunos.delete(aluno);
             $scope.alunos.post();

@@ -7,16 +7,16 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('app', [
     'ionic',
-    'app.db.dao',
+    'app.dao',
     'app.cadform',
-    'app.utils.popup',
+    'app.popups',
     'app.alunos.lista',
     'app.escolas.lista',
     'app.disciplinas.lista',
     'app.turmas.lista',
     'app.configuracao',
     'app.layout',
-    'app.utils.msg',
+    'app.mensagens',
     'app.directives',
     'app.services'
 ])

@@ -1,5 +1,5 @@
 angular.module('app.disciplinas.lista', [])
-.controller('disciplinasCtrl', function($scope, $ionicModal, DbDaoFact, UtilsMsgFact) {
+.controller('disciplinasCtrl', function($scope, $ionicModal, daoFactory, msgFactory) {
 
     $ionicModal.fromTemplateUrl('app/views/cad_disciplinas.html',{
         scope: $scope
@@ -21,7 +21,7 @@ angular.module('app.disciplinas.lista', [])
         $scope.modal.show();
     };
     
-    $scope.disciplinas = DbDaoFact.getDisciplinas();
+    $scope.disciplinas = daoFactory.getDisciplinas();
     
     $scope.saveRecord = function(){
         $scope.disciplinas.save($scope.disciplina);
@@ -30,7 +30,7 @@ angular.module('app.disciplinas.lista', [])
     };
     
     $scope.deleteRecord = function(disciplina){
-        UtilsMsgFact.confirm('Deseja excluir a disciplina?').then(function(res) {
+        msgFactory.confirm('Deseja excluir a disciplina?').then(function(res) {
             if (!res) return;
             $scope.disciplinas.delete(disciplina);
             $scope.disciplinas.post();
