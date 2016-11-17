@@ -1,7 +1,7 @@
 angular.module('app.turmas.lista', [])
-.controller('turmasCtrl', function($scope, $state, $ionicModal, daoFactory, msgFactory, popupFactory) {
+.controller('turmasCtrl', function($scope, $ionicModal, daoFactory, msgFactory) {
 	
-	$ionicModal.fromTemplateUrl('app/views/cad_disciplinas.html',{
+	$ionicModal.fromTemplateUrl('app/views/cad_turmas.html',{
         scope: $scope
     }).then(function(modal){
         $scope.modal = modal;
@@ -16,28 +16,12 @@ angular.module('app.turmas.lista', [])
     };
     
     $scope.addRecord = function() {
-        $state.go('layout.cad_turmas');
-    };
-    
-    $scope.turmas = daoFactory.getTurmas();
-    
-    $scope.addDisciplina = function(){
-        $scope.disciplina = {};
+        $scope.turma = {};
         $scope.inserting = true;
         $scope.modal.show();
     };
-
-    popupFactory.startPopup('app/views/popup_turmas.html', $scope);
-
-    $scope.showPopup = function(turma, event) {
-        $scope.turma =  OjsUtils.cloneObject(turma);
-        $scope.inserting = false;
-        $scope.popover.show(event);
-    }
     
-    $scope.closePopover = function(){
-        $scope.popover.hide();
-    }
+    $scope.turmas = daoFactory.getTurmas();
     
     $scope.saveRecord = function(){
         $scope.turmas.save($scope.turma);
@@ -46,7 +30,6 @@ angular.module('app.turmas.lista', [])
     };
     
     $scope.deleteRecord = function(turma){
-        $scope.closePopover();
         msgFactory.confirm('Deseja excluir a turma?').then(function(res) {
             if (!res) return;
             $scope.turmas.delete(turma);
@@ -54,8 +37,9 @@ angular.module('app.turmas.lista', [])
         })
     };
     
-    $scope.editRecord = function(){
-        $scope.closePopover();
+    $scope.editRecord = function(turma){
+        $scope.turma =  OjsUtils.cloneObject(turma);
+        $scope.inserting = false;
         $scope.modal.show();
     };
 });
