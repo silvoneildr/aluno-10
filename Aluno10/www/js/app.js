@@ -14,7 +14,7 @@ angular.module('app', [
     'app.escolas.lista',
     'app.disciplinas.lista',
     'app.turmas.lista',
-    'app.configuracao',
+    'app.inicio',
     'app.layout',
     'app.mensagens',
     'app.directives',
@@ -79,17 +79,17 @@ angular.module('app', [
         }
     })
 
-    .state('layout.configuracao', {
-        url: '/Configuracao',
+    .state('layout.inicio', {
+        url: '/Inicio',
         views: {
           'side-menu21': {
-            templateUrl: 'app/views/configuracao.html',
-            controller: 'configuracaoCtrl'
+            templateUrl: 'app/views/inicio.html',
+            controller: 'inicioCtrl'
           }
         }
     });
     
-    $urlRouterProvider.otherwise('/Alunos');
+    $urlRouterProvider.otherwise('/Inicio');
 })
 
 .run(function($ionicPlatform) {
