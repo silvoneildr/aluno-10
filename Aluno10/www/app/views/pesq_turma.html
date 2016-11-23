@@ -1,0 +1,24 @@
+<div class="modal">
+    <ion-header-bar class="has-tabs-top">
+        <h1 class="title">Turmas</h1>
+        <button ng-click="hideItems()" class="button button-clear ion-close-round"></button>
+    </ion-header-bar>
+    <ion-header-bar class="bar-subheader item-input-inset">
+        <label class="item-input-wrapper">
+            <i class="icon ion-android-search placeholder-icon"></i>
+            <input type="search" placeholder="Pesquisar...">
+        </label>
+    </ion-header-bar>
+    <ion-content class="">
+        <div class="list">
+            <div class="item"
+                 collection-repeat="item in items"
+                 ng-click="selectValue(item.id)" 
+                 item-height="76px"
+                 item-width="100%">
+                <h2>{{item.nome}}</h2>
+                <p>{{item.descricao}}</p>
+            </div>
+        </div>
+    </ion-content>
+</div>

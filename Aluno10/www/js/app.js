@@ -13,10 +13,12 @@ angular.module('app', [
     'app.alunos.lista',
     'app.escolas.lista',
     'app.disciplinas.lista',
+    'app.cad_disciplinas',
     'app.turmas.lista',
     'app.inicio',
     'app.layout',
     'app.mensagens',
+    'app.my-select',
     'app.directives',
     'app.services'
 ])
@@ -58,22 +60,22 @@ angular.module('app', [
           }
         }
     })
+    
+    .state('layout.cad_disciplinas', {
+        url: '/CadDisciplinas/:id',
+        views: {
+          'side-menu21': {
+            templateUrl: 'app/views/cad_disciplinas.html',
+            controller: 'disciplinasCtrl'
+          }
+        }
+    })
 
     .state('layout.turmas', {
         url: '/Turmas',
         views: {
           'side-menu21': {
             templateUrl: 'app/views/turmas.html',
-            controller: 'turmasCtrl'
-          }
-        }
-    })
-    
-        .state('layout.cad_turmas', {
-        url: '/CadTurmas',
-        views: {
-          'side-menu21': {
-            templateUrl: 'app/views/cad_turmas.html',
             controller: 'turmasCtrl'
           }
         }

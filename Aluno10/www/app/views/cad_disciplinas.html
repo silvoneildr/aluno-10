@@ -1,7 +1,7 @@
-<ion-modal-view>
+<ion-view ng-controller="cad_disciplinasCtrl">
     <ion-header-bar class="bar bar-header bar-positive">
         <h1 class="title">Cadastrar</h1>
-        <button ng-click="closeModal()" class="button button-clear ion-close-round"></button>
+<!--        <button class="button button-clear ion-close-round"></button>-->
     </ion-header-bar>
     <ion-content class="padding">
         <div class="list">
@@ -13,7 +13,23 @@
                 <span class="input-label">Descrição</span>
                 <input type="text" ng-model="disciplina.descricao">
             </label>
-            <button class="button button-full button-positive" ng-click="saveRecord()">Confirmar</button>
+            <my-select items="turmas.data"
+                       id="turma"
+                       name="turma"
+                       ng-model="disciplina.turmaId"
+                       value="disciplina.turmaId"
+                       popup-tmpl="app/views/pesq_turma.html"
+                       ui-class="positive"
+                       required>
+                <label>
+                    <span class="input-label">Turma</span>
+                    <span>
+                        {{turmas.getById(disciplina.turmaId).nome}}
+                    </span>
+                </label>
+            </my-select>
+
+            <button class="button button-full button-positive" ng-click="saveRecord(disciplina)">Confirmar</button>
         </div>
     </ion-content>
-</ion-modal-view>
+</ion-view>

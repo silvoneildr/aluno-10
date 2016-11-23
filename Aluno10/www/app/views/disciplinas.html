@@ -4,12 +4,13 @@
     </ion-nav-buttons>
     <ion-content padding="true" class="has-header">
         <ion-list id="disciplinas-list">
-            <ion-item ng-repeat="disciplina in disciplinas.data" ng-click="editRecord(disciplina)">
+            <ion-item class="item item-icon-right" ng-repeat="disciplina in disciplinas.data">
                 <h2>{{disciplina.nome}}</h2>
-                <p>{{disciplina.descricao}}</p>
-                <ion-option-button class="button-assertive" ng-click="deleteRecord(disciplina)">
+                <p>{{turmas.getById(disciplina.turmaId).nome}}</p>
+                <button class="icon ion-android-more-vertical button button-icon"></button>
+                <!--<ion-option-button class="button-assertive" ng-click="deleteRecord(disciplina)">
                     Excluir
-                </ion-option-button>
+                </ion-option-button>-->
             </ion-item>
         </ion-list>
     </ion-content>
