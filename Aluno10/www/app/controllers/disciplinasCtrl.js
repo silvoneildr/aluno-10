@@ -1,26 +1,20 @@
 angular.module('app.disciplinas.lista', [])
-.controller('disciplinasCtrl', function($scope, $ionicModal, $state, daoFactory, msgFactory) {
-
-//    $ionicModal.fromTemplateUrl('app/views/cad_disciplinas.html',{
-//        scope: $scope
-//    }).then(function(modal){
-//        $scope.modal = modal;
-//    });
-    
-//    $scope.$on('$destroy', function() {
-//        $scope.modal.remove();
-//    });
-//    
-//    $scope.closeModal = function() {
-//        $scope.modal.hide();
-//    };
-    
-    $scope.addRecord = function() {
-        $state.go('layout.cad_disciplinas');
-    };
+.controller('disciplinasCtrl', function($scope, $ionicModal, $ionicPopover, $state, daoFactory, msgFactory, popupFactory) {
     
     $scope.disciplinas = daoFactory.getDisciplinas();
     $scope.turmas = daoFactory.getTurmas();
+
+    popupFactory.startPopup('./app/views/popup_disciplinas.html', $scope);
+
+    $scope.openPopup = function(event){
+        // $scope.disciplinas = OjsUtils.cloneObject(disciplina);
+        // $scope.inserting = false;
+        $scope.popover.show(event);
+    };   
+
+    $scope.addRecord = function() {
+        $state.go('layout.cad_disciplinas');
+    };
     
     $scope.saveRecord = function(Disciplina){
         $scope.disciplinas.save(Disciplina);

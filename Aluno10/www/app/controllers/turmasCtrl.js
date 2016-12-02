@@ -14,7 +14,7 @@ angular.module('app.turmas.lista', [])
     $scope.closeModal = function() {
         $scope.modal.hide();
     };
-    
+        
     $scope.addRecord = function() {
         $scope.turma = {};
         $scope.inserting = true;
