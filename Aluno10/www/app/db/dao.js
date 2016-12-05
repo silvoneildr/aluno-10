@@ -4,7 +4,8 @@ angular.module('app.dao',[])
         alunos = db.createDataSet('alunos'),
         escolas = db.createDataSet('escolas'),
         disciplinas = db.createDataSet('disciplinas'),
-        turmas = db.createDataSet('turmas');
+        turmas = db.createDataSet('turmas'),
+        frequencias = db.createDataSet('frequencias');
     
     return {
         getAlunos: function() {
@@ -18,6 +19,9 @@ angular.module('app.dao',[])
         },
         getTurmas: function(){
             return turmas.open();
+        },
+        getFrequencias: function(){
+            return frequencias.open;
         }
     }
 });

@@ -15,6 +15,7 @@ angular.module('app', [
     'app.disciplinas.lista',
     'app.cad_disciplinas',
     'app.turmas.lista',
+    'app.frequencias',
     'app.inicio',
     'app.layout',
     'app.mensagens',
@@ -62,11 +63,21 @@ angular.module('app', [
     })
     
     .state('layout.cad_disciplinas', {
-        url: '/CadDisciplinas/:id',
+        url: '/cad_disciplinas/:id',
         views: {
           'side-menu21': {
             templateUrl: 'app/views/cad_disciplinas.html',
-            controller: 'disciplinasCtrl'
+            controller: 'cad_disciplinasCtrl'
+          }
+        }
+    })
+    
+    .state('layout.frequencias', {
+        url: '/Frequencia',
+        views: {
+          'side-menu21': {
+            templateUrl: 'app/views/frequencias.html',
+            controller: 'frequenciasCtrl'
           }
         }
     })

@@ -1,4 +1,4 @@
-<ion-view title="Disciplinas" ng-controller="disciplinasCtrl">
+<ion-view title="Disciplinas">
     <ion-nav-buttons side="right">
         <button class="button button-icon button-clear ion-plus-round" ng-click="addRecord()"></button>
     </ion-nav-buttons>
@@ -7,7 +7,8 @@
             <ion-item class="item item-icon-right" ng-repeat="disciplina in disciplinas.data">
                 <h2>{{disciplina.nome}}</h2>
                 <p>{{turmas.getById(disciplina.turmaId).nome}}</p>
-                <button class="icon ion-android-more-vertical button button-icon" ng-click="openPopup($event)"></button>
+                <button class="icon ion-android-more-vertical button button-icon" ng-click="openPopover(disciplina, $event)">
+                </button>
             </ion-item>
         </ion-list>
     </ion-content>

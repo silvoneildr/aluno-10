@@ -1,15 +1,19 @@
-<ion-popover-view style="height: {{(53 * 4) + 'px'}}" style="margin:0;padding:0" ng-controller="cad_disciplinasCtrl">
+<ion-popover-view style="height: {{(54 * 5) + 'px'}}" style="margin:0;padding:0">
     <ion-content style="margin:0;padding:0">
         <div class="list">
-            <a class="item item-icon-left">
+            <a class="item item-icon-left" ng-click="editRecord()">
                 <i class="icon ion-edit"></i>
                 Editar Disciplina
             </a>
-            <a class="item item-icon-left">
+            <a class="item item-icon-left" ng-click="deleteRecord()">
                 <i class="icon ion-trash-a"></i>
                 Excluir Disciplina
             </a>
             <a class="item item-icon-left">
+                <i class="icon ion-person-add"></i>
+                Adicionar Alunos
+            </a>
+            <a class="item item-icon-left" ng-click="addFrequencia()">
                 <i class="icon ion-ios-list"></i>
                 Lançar Frequência
             </a>
