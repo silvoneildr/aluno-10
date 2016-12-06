@@ -34,4 +34,8 @@ angular.module('app.disciplinas', [])
     $scope.addFrequencia = function(){
         $state.go('layout.frequencias');
     };
+
+    $scope.addAlunos = function(){
+        $state.go('layout.alunos_disciplinas',{id: $scope.disciplina.id});
+    };
 });

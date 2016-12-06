@@ -53,6 +53,16 @@ angular.module('app', [
         }
     })
 
+    .state('layout.turmas', {
+        url: '/Turmas',
+        views: {
+          'side-menu21': {
+            templateUrl: 'app/views/turmas.html',
+            controller: 'turmasCtrl'
+          }
+        }
+    })
+
     .state('layout.disciplinas', {
         url: '/Disciplinas',
         views: {
@@ -83,12 +93,12 @@ angular.module('app', [
         }
     })
 
-    .state('layout.turmas', {
-        url: '/Turmas',
+    .state('layout.alunos_disciplinas', {
+        url: '/Lista/:id',
         views: {
           'side-menu21': {
-            templateUrl: 'app/views/turmas.html',
-            controller: 'turmasCtrl'
+            templateUrl: 'app/views/alunos_disciplinas.html',
+            controller: 'alunos_disciplinasCtrl'
           }
         }
     })
