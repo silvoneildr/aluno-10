@@ -1,4 +1,4 @@
-angular.module('app.disciplinas.lista', [])
+angular.module('app.disciplinas', [])
 .controller('disciplinasCtrl', function($scope, $ionicPopover, $state, popupFactory, daoFactory, msgFactory) {
     
     $scope.disciplinas = daoFactory.getDisciplinas();

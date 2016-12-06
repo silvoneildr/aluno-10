@@ -1,4 +1,4 @@
-angular.module('app.turmas.lista', [])
+angular.module('app.turmas', [])
 .controller('turmasCtrl', function($scope, $ionicModal, daoFactory, msgFactory) {
 	
 	$ionicModal.fromTemplateUrl('app/views/cad_turmas.html',{

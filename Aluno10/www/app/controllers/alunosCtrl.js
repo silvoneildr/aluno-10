@@ -1,4 +1,4 @@
-angular.module('app.alunos.lista', [])
+angular.module('app.alunos', [])
 .controller('alunosCtrl', function($scope, $ionicModal, daoFactory, msgFactory) {
 
     $ionicModal.fromTemplateUrl('app/views/cad_alunos.html',{

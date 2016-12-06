@@ -1,4 +1,4 @@
-angular.module('app.escolas.lista', [])
+angular.module('app.escolas', [])
 .controller('escolasCtrl', function($scope, $ionicModal, daoFactory, msgFactory) {
 
     $ionicModal.fromTemplateUrl('app/views/cad_escolas.html',{
