@@ -1,10 +1,9 @@
 angular.module('app.alunos.disciplinas', [])
-.controller('alunos_disciplinasCtrl', function($scope, $stateParams, $ionicModal, daoFactory){
+.controller('alunos_disciplinasCtrl', function($scope, $stateParams, $ionicModal, daoFactory, msgFactory){
 
-	$scope.alunosDisciplina = daoFactory.getAlunosDisciplina();
 	$scope.disciplina = daoFactory.getDisciplinas().getById(parseInt($stateParams.id));
 	$scope.alunos = daoFactory.getAlunos();
-	$scope.checked = false;
+	$scope.selected = false;
 	
 	$ionicModal.fromTemplateUrl('app/views/addAlunos.html', {
     	scope: $scope
@@ -25,15 +24,26 @@ angular.module('app.alunos.disciplinas', [])
 	};
 
 	$scope.checkAll = function(){
-		var listaAlunos = $scope.alunos
-		$scope.checked = !$scope.checked;
-		 
-		for (i = 0; i < listaAlunos.data.length; i++) {
-			listaAlunos.data[i].isChecked = $scope.checked;
-		}	
+		$scope.selected = !$scope.selected;
 	};
 
-	$scope.deleteAlunosDisciplina = function(){
-		//
+	$scope.addAlunos = function(){
+		var listaAlunos = $scope.alunos,
+			listaMarcados = [];
+
+		for (var i = 0; i< listaAlunos.data.length ; i++) {
+			if (listaAlunos.data[i].isChecked) {
+				listaMarcados.push(listaAlunos.data[i]); 
+			}
+		}
+		$scope.disciplina.alunos = listaMarcados;
+	};
+
+	$scope.deleteAluno = function(aluno){
+		msgFactory.confirm('Deseja excluir o aluno da disciplina?').then(function(res) {
+            if (!res) return;
+          	$scope.disciplina.alunos.delete(aluno);
+        	$scope.disciplina.alunos.post();
+        })	
 	};
 });
