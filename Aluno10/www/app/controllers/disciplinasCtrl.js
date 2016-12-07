@@ -1,5 +1,5 @@
 angular.module('app.disciplinas', [])
-.controller('disciplinasCtrl', function($scope, $ionicPopover, $state, popupFactory, daoFactory, msgFactory) {
+.controller('disciplinasCtrl', function($scope, $ionicPopover, $state, $stateParams, popupFactory, daoFactory, msgFactory) {
     
     $scope.disciplinas = daoFactory.getDisciplinas();
     $scope.turmas = daoFactory.getTurmas();
@@ -16,10 +16,8 @@ angular.module('app.disciplinas', [])
     };
 
     $scope.editRecord = function(){
-        // console.log($scope.turmas.getById($scope.disciplina.turmaId).nome);
-        console.log($scope.disciplinas.getById($scope.disciplina.id));
-        $state.go('layout.cad_disciplinas',{id: $scope.disciplina.id});
-        $scope.popover.hide();
+        // $state.go('layout.cad_disciplinas',{id: $scope.disciplina.id});
+        // $scope.popover.hide();
     };
 
     $scope.deleteRecord = function(){
