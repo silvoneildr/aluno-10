@@ -9,7 +9,7 @@
         </ion-checkbox>
         <ion-list id="alunos-list">
             <ion-checkbox ng-repeat="aluno in alunos.data" ng-model="aluno.isChecked" ng-checked="aluno.isChecked">
-                {{aluno.numero}} - {{aluno.nome}} - {{aluno.isChecked}}
+                {{aluno.numero}} - {{aluno.nome}}
             </ion-checkbox>
             <button class="button button-full button-positive" ng-click="addAlunos()">Add Alunos</button>
         </ion-list>

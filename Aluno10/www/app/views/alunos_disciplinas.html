@@ -3,17 +3,17 @@
         <button class="button button-icon button-clear ion-plus-round" ng-click="showAlunos()"></button>
     </ion-nav-buttons>
     <ion-content padding="true" class="has-header">
-        <div class="list">
+        <ion-list class="list">
             <div class="item item-divider">
                 {{disciplina.nome}}
             </div>
             <ion-item class="item" ng-repeat="aluno in disciplina.alunos">
-                {{aluno.numero}} - {{aluno.nome}}
+                <h2>{{aluno.numero}} - {{aluno.nome}}</h2>
                 <ion-option-button class="button-assertive" ng-click="deleteAluno(aluno)">
                     Excluir
                 </ion-option-button>
             </ion-item>
-        </div>
+        </ion-item>
     </ion-content>
     <ion-footer-bar class="item-input-inset bar-positive">
                     

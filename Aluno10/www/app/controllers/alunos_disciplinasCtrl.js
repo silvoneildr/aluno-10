@@ -35,28 +35,31 @@ angular.module('app.alunos.disciplinas', [])
 	};
 
 	$scope.addAlunos = function(){
-		
-		if (!$scope.disciplina.alunos){
+		if (!$scope.disciplina.alunos) {
 			$scope.disciplina.alunos = [];
 		};
-			
+
 		for (var i = 0; i < $scope.alunos.data.length ; i++) {
-			for (var j = 0; j < $scope.disciplina.alunos.length ; j++) {
-				if ($scope.disciplina.alunos[j] === $scope.alunos.data[i]){
-					return;
-				}
-			}
-			if ($scope.alunos.data[i].isChecked){
-				$scope.disciplina.alunos.push($scope.alunos.data[i]);
+			var index = $scope.disciplina.alunos
+				.map(function(item) { return item.id; })
+				.indexOf($scope.alunos.data[i]);
+			
+			if (index > -1) { continue; }
+			
+			if ($scope.alunos.data[i].isChecked) {
+				$scope.disciplina.alunos.push($scope.alunos.data[i]);	
 			}
 		};
-		
+
 		$scope.disciplinas.save($scope.disciplina);
         $scope.disciplinas.post();
         $scope.closeModal();
 	};
 
 	$scope.deleteAluno = function(aluno){
-		//
+		msgFactory.confirm('Deseja excluir o aluno da disciplina?').then(function(res) {
+            if (!res) return;
+            console.log(aluno);
+        })
 	};
 });
