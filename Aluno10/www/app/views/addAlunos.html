@@ -1,17 +1,15 @@
 <ion-modal-view>
     <ion-header-bar class="bar bar-header bar-positive">
-<!--         <button class="button icon-left ion-checkmark-round" ng-click="checkAll()"></button> -->
         <h1 class="title">Alunos</h1>
         <button ng-click="closeModal()" class="button button-clear ion-close-round"></button>
     </ion-header-bar>
-    
     <ion-content class="padding">
-    <ion-checkbox class ="checkbox-positive" ng-click="checkAll()">
-        Marcar ou desmarcar todos       
-    </ion-checkbox>
+        <ion-checkbox class ="checkbox-positive" ng-click="checkAll()">
+            Marcar ou desmarcar todos       
+        </ion-checkbox>
         <ion-list id="alunos-list">
-            <ion-checkbox ng-repeat="aluno in alunos.data" ng-model="aluno.isChecked" ng-checked="selected">
-                {{aluno.numero}} - {{aluno.nome}}
+            <ion-checkbox ng-repeat="aluno in alunos.data" ng-model="aluno.isChecked" ng-checked="aluno.isChecked">
+                {{aluno.numero}} - {{aluno.nome}} - {{aluno.isChecked}}
             </ion-checkbox>
             <button class="button button-full button-positive" ng-click="addAlunos()">Add Alunos</button>
         </ion-list>
