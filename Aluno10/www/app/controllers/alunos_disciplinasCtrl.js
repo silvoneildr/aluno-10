@@ -40,15 +40,16 @@ angular.module('app.alunos.disciplinas', [])
 		};
 
 		for (var i = 0; i < $scope.alunos.data.length ; i++) {
-			var index = $scope.disciplina.alunos
-				.map(function(item) { return item.id; })
-				.indexOf($scope.alunos.data[i]);
-			
-			if (index > -1) { continue; }
-			
-			if ($scope.alunos.data[i].isChecked) {
-				$scope.disciplina.alunos.push($scope.alunos.data[i]);	
-			}
+
+			if ($scope.alunos.data[i].isChecked){
+				var index = $scope.disciplina.alunos
+					.map(function(item) { return item.id;})
+					.indexOf($scope.alunos.data[i].id);
+				
+				if (index < 0){
+					$scope.disciplina.alunos.push($scope.alunos.data[i]);
+				}
+			};
 		};
 
 		$scope.disciplinas.save($scope.disciplina);
@@ -57,9 +58,16 @@ angular.module('app.alunos.disciplinas', [])
 	};
 
 	$scope.deleteAluno = function(aluno){
-		msgFactory.confirm('Deseja excluir o aluno da disciplina?').then(function(res) {
+		msgFactory.confirm('Deseja excluir o aluno?').then(function(res) {
             if (!res) return;
-            console.log(aluno);
-        })
+
+			for(var i = $scope.disciplina.alunos.length - 1; i >= 0; i--) {
+				if($scope.disciplina.alunos[i].id === aluno.id) {
+					$scope.disciplina.alunos.splice(i, 1);
+				}
+			}
+			$scope.disciplinas.save($scope.disciplina);
+        	$scope.disciplinas.post();
+		});
 	};
 });

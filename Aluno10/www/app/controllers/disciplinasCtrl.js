@@ -14,10 +14,10 @@ angular.module('app.disciplinas', [])
         $scope.disciplina = disciplina;
         $scope.popover.show(event);
     };
-
+    
     $scope.editRecord = function(){
-        // $state.go('layout.cad_disciplinas',{id: $scope.disciplina.id});
-        // $scope.popover.hide();
+        $state.go('layout.cad_disciplinas',{id: $scope.disciplina.id});
+        $scope.popover.hide();
     };
 
     $scope.deleteRecord = function(){

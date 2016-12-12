@@ -7,7 +7,7 @@
             <div class="item item-divider">
                 {{disciplina.nome}}
             </div>
-            <ion-item class="item" ng-repeat="aluno in disciplina.alunos">
+            <ion-item class="item" ng-repeat="aluno in disciplina.alunos track by $index">
                 <h2>{{aluno.numero}} - {{aluno.nome}}</h2>
                 <ion-option-button class="button-assertive" ng-click="deleteAluno(aluno)">
                     Excluir
