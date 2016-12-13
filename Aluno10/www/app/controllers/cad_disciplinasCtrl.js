@@ -3,6 +3,7 @@ angular.module('app.cad_disciplinas', [])
 
     $scope.disciplinas = daoFactory.getDisciplinas();
     $scope.turmas = daoFactory.getTurmas();
+    $scope.escolas = daoFactory.getEscolas();
 
     if ($stateParams.id) {
         var disciplinaId = parseInt($stateParams.id);

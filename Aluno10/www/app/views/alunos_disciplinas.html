@@ -4,7 +4,7 @@
     </ion-nav-buttons>
     <ion-content padding="true" class="has-header">
         <div class="item item-divider">
-            {{disciplina.nome}}
+            <h2>{{disciplina.nome}}</h2>
         </div>
         <ion-list id="alunos-disciplinas-list">
             <ion-item ng-repeat="aluno in disciplina.alunos">
@@ -15,7 +15,4 @@
             </ion-item>
         </ion-list>
     </ion-content>
-    <ion-footer-bar class="item-input-inset bar-positive">
-                    
-    </ion-footer-bar>   
 </ion-view>

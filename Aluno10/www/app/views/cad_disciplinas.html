@@ -13,6 +13,26 @@
                 <span class="input-label">Descrição</span>
                 <input type="text" ng-model="disciplina.descricao">
             </label>
+            <label class="item item-input">
+                <span class="input-label">Ementa</span>
+                <textarea></textarea>
+            </label>
+            
+            <my-select items="escolas.data"
+                       id="escola"
+                       name="escola"
+                       ng-model="disciplina.escolaId"
+                       value="disciplina.escolaId"
+                       popup-tmpl="app/views/pesq_turma.html"
+                       ui-class="positive"
+                       required>
+                <label>
+                    <span class="input-label">Escola</span>
+                    <span>
+                        {{escolas.getById(disciplina.escolaId).nome}}
+                    </span>
+                </label>
+            </my-select>
             <my-select items="turmas.data"
                        id="turma"
                        name="turma"

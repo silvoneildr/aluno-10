@@ -2,6 +2,7 @@ angular.module('app.alunos.disciplinas', [])
 .controller('alunos_disciplinasCtrl', function($scope, $stateParams, $ionicModal, daoFactory, msgFactory){
 
 	$scope.disciplinas = daoFactory.getDisciplinas();
+	$scope.turmas = daoFactory.getTurmas();
 	$scope.disciplina = daoFactory.getDisciplinas().getById(parseInt($stateParams.id));
 	$scope.alunos = daoFactory.getAlunos();
 	$scope.selected = false;
@@ -40,7 +41,6 @@ angular.module('app.alunos.disciplinas', [])
 		};
 
 		for (var i = 0; i < $scope.alunos.data.length ; i++) {
-
 			if ($scope.alunos.data[i].isChecked){
 				var index = $scope.disciplina.alunos
 					.map(function(item) { return item.id;})
