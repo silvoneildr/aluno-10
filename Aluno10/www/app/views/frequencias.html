@@ -1,8 +1,14 @@
 <ion-view title="Frequência">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-plus-round" ng-click="addRecord()"></button>
+    </ion-nav-buttons>
     <ion-content padding="true" class="has-header">
-        <h2>View Frequencia</h2>
+        <ion-list id="disciplinas-list">
+            <ion-item class="item item-icon-right" ng-repeat="frequencia in frequencias.data">
+                
+                <!--<button class="icon ion-android-more-vertical button button-icon" ng-click="openPopover(disciplina, $event)">-->
+                </button>
+            </ion-item>
+        </ion-list>        
     </ion-content>
-    <ion-footer-bar class="item-input-inset bar-positive">
-    
-    </ion-footer-bar>   
 </ion-view>
