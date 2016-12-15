@@ -30,7 +30,7 @@ angular.module('app.disciplinas', [])
     };
 
     $scope.addFrequencia = function(){
-        $state.go('layout.frequencias');
+        $state.go('layout.frequencias',{disciplinaId: $scope.disciplina.id});
     };
 
     $scope.addAlunos = function(){

@@ -84,7 +84,7 @@ angular.module('app', [
     })
     
     .state('layout.frequencias', {
-        url: '/Frequencia',
+        url: '/Frequencia/:disciplinaId',
         views: {
           'side-menu21': {
             templateUrl: 'app/views/frequencias.html',

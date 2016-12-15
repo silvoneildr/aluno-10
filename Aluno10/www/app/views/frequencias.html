@@ -3,8 +3,11 @@
         <button class="button button-icon button-clear ion-plus-round" ng-click="addRecord()"></button>
     </ion-nav-buttons>
     <ion-content padding="true" class="has-header">
+        <div class="item item-divider">
+            <h2>{{disciplina.nome}}</h2>
+        </div>
         <ion-list id="frequencias-list">
-            <ion-item class="item item-icon-right" ng-repeat="frequencia in frequencias.data">
+            <ion-item class="item item-icon-right" ng-repeat="frequencia in listaFrequencias">
                 <h2>{{frequencia.data_freq | date:"dd/MM/yyyy"}} - {{frequencia.qtde}}</h2>
                 <button class="icon ion-android-more-vertical button button-icon" ng-click="openPopover(frequencia, $event)">
                 </button>
