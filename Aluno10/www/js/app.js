@@ -24,94 +24,94 @@ angular.module('app', [
     'app.directives',
     'app.services'
 ])
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+    $ionicConfigProvider.tabs.position('bottom'),  
     $stateProvider
-    
-    .state('layout', {
-        abstract: true,
-        templateUrl: 'app/views/layout.html',
-        controller: 'layoutCtrl'
-    })
-    
-    .state('layout.alunos', {
-        url: '/Alunos',
-        views: {
-          'side-menu21': {
-            templateUrl: 'app/views/alunos.html',
-            controller: 'alunosCtrl'
+      .state('layout', {
+          abstract: true,
+          templateUrl: 'app/views/layout.html',
+          controller: 'layoutCtrl'
+      })
+      
+      .state('layout.alunos', {
+          url: '/Alunos',
+          views: {
+            'side-menu21': {
+              templateUrl: 'app/views/alunos.html',
+              controller: 'alunosCtrl'
+            }
           }
-        }
-    })
+      })
 
-    .state('layout.escolas', {
-        url: '/Escolas',
-        views: {
-          'side-menu21': {
-            templateUrl: 'app/views/escolas.html',
-            controller: 'escolasCtrl'
+      .state('layout.escolas', {
+          url: '/Escolas',
+          views: {
+            'side-menu21': {
+              templateUrl: 'app/views/escolas.html',
+              controller: 'escolasCtrl'
+            }
           }
-        }
-    })
+      })
 
-    .state('layout.turmas', {
-        url: '/Turmas',
-        views: {
-          'side-menu21': {
-            templateUrl: 'app/views/turmas.html',
-            controller: 'turmasCtrl'
+      .state('layout.turmas', {
+          url: '/Turmas',
+          views: {
+            'side-menu21': {
+              templateUrl: 'app/views/turmas.html',
+              controller: 'turmasCtrl'
+            }
           }
-        }
-    })
+      })
 
-    .state('layout.disciplinas', {
-        url: '/Disciplinas',
-        views: {
-          'side-menu21': {
-            templateUrl: 'app/views/disciplinas.html',
-            controller: 'disciplinasCtrl'
+      .state('layout.disciplinas', {
+          url: '/Disciplinas',
+          views: {
+            'side-menu21': {
+              templateUrl: 'app/views/disciplinas.html',
+              controller: 'disciplinasCtrl'
+            }
           }
-        }
-    })
-    
-    .state('layout.cad_disciplinas', {
-        url: '/cad_disciplinas/:id',
-        views: {
-          'side-menu21': {
-            templateUrl: 'app/views/cad_disciplinas.html',
-            controller: 'cad_disciplinasCtrl'
+      })
+      
+      .state('layout.cad_disciplinas', {
+          url: '/cad_disciplinas/:id',
+          views: {
+            'side-menu21': {
+              templateUrl: 'app/views/cad_disciplinas.html',
+              controller: 'cad_disciplinasCtrl'
+            }
           }
-        }
-    })
-    
-    .state('layout.frequencias', {
-        url: '/Frequencia/:disciplinaId',
-        views: {
-          'side-menu21': {
-            templateUrl: 'app/views/frequencias.html',
-            controller: 'frequenciasCtrl'
+      })
+      
+      .state('layout.frequencias', {
+          url: '/Frequencia/:disciplinaId',
+          views: {
+            'side-menu21': {
+              templateUrl: 'app/views/frequencias.html',
+              controller: 'frequenciasCtrl'
+            }
           }
-        }
-    })
+      })
 
-    .state('layout.alunos_disciplinas', {
-        url: '/Lista/:id',
-        views: {
-          'side-menu21': {
-            templateUrl: 'app/views/alunos_disciplinas.html',
-            controller: 'alunos_disciplinasCtrl'
+      .state('layout.alunos_disciplinas', {
+          url: '/Lista/:id',
+          views: {
+            'side-menu21': {
+              templateUrl: 'app/views/alunos_disciplinas.html',
+              controller: 'alunos_disciplinasCtrl'
+            }
           }
-        }
-    })
+      })
 
-    .state('layout.inicio', {
-        url: '/Inicio',
-        views: {
-          'side-menu21': {
-            templateUrl: 'app/views/inicio.html',
-            controller: 'inicioCtrl'
+      .state('layout.inicio', {
+          url: '/Inicio',
+          views: {
+            'side-menu21': {
+              templateUrl: 'app/views/inicio.html',
+              controller: 'inicioCtrl'
+            }
           }
-        }
-    });
+      });
     
     $urlRouterProvider.otherwise('/Inicio');
 })
