@@ -22,10 +22,10 @@ angular.module('app.dao',[])
             return turmas.open();
         },
         getFrequencias: function(){
-            return frequencias.open;
+            return frequencias.open();
         },
         getAlunosDisciplina: function(){
-            return alunosDisciplina.open;
+            return alunosDisciplina.open();
         }
     }
 });

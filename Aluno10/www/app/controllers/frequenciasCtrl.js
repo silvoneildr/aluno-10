@@ -1,5 +1,5 @@
 angular.module('app.frequencias', [])
-.controller('frequenciasCtrl', function($scope, $ionicModal, daoFactory, msgFactory){
+.controller('frequenciasCtrl', function($scope, $ionicModal, $ionicPopover, popupFactory, daoFactory, msgFactory){
     
     $ionicModal.fromTemplateUrl('app/views/cad_frequencias.html',{
         scope: $scope
@@ -28,19 +28,20 @@ angular.module('app.frequencias', [])
         $scope.frequencias.post();
         $scope.closeModal();
     };
+
+    popupFactory.startPopup('./app/views/popup_frequencias.html', $scope);
+
+    $scope.openPopover = function(frequencia, event){
+        $scope.frequencia = frequencia;
+        $scope.popover.show(event);
+    };
     
-    $scope.deleteRecord = function(frequencia){
+    $scope.deleteRecord = function(){
         msgFactory.confirm('Deseja excluir a frequencia?').then(function(res) {
             if (!res) return;
-            $scope.frequencias.delete(frequencia);
+            $scope.frequencias.delete($scope.frequencia);
             $scope.frequencias.post();
-        })
+        });
+        $scope.popover.hide();
     };
-    
-    $scope.editRecord = function(frequencia){
-        $scope.frequencia =  OjsUtils.cloneObject(frequencia);
-        $scope.inserting = false;
-        $scope.modal.show();
-    };
-
 })
