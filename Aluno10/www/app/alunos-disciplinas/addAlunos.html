@@ -8,7 +8,7 @@
             Marcar ou desmarcar todos       
         </ion-checkbox>
         <ion-list id="alunos-list">
-            <ion-checkbox ng-repeat="aluno in alunos.data" ng-model="aluno.isChecked" ng-checked="aluno.isChecked">
+            <ion-checkbox ng-repeat="aluno in alunos.data track by $index" ng-model="aluno.isChecked" ng-checked="aluno.isChecked">
                 {{aluno.numero}} - {{aluno.nome}}
             </ion-checkbox>
             <button class="button button-full button-positive" ng-click="addAlunos()">Add Alunos</button>
