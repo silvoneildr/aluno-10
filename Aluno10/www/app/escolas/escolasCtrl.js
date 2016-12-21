@@ -1,7 +1,7 @@
 angular.module('app.escolas', [])
 .controller('escolasCtrl', function($scope, $ionicModal, daoFactory, msgFactory) {
 
-    $ionicModal.fromTemplateUrl('app/views/cad_escolas.html',{
+    $ionicModal.fromTemplateUrl('app/escolas/cad_escolas.html',{
         scope: $scope
     }).then(function(modal){
         $scope.modal = modal;

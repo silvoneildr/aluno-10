@@ -8,7 +8,7 @@ angular.module('app.disciplinas', [])
         $state.go('layout.cad_disciplinas');
     };
 
-    popupFactory.startPopup('./app/views/popup_disciplinas.html', $scope);
+    popupFactory.startPopup('./app/disciplinas/popup_disciplinas.html', $scope);
 
     $scope.openPopover = function(disciplina, event){
         $scope.disciplina = disciplina;

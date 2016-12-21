@@ -1,0 +1,16 @@
+<ion-view title="Turma">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-plus-round" ng-click="addRecord()"></button>
+    </ion-nav-buttons>
+    <ion-content padding="true" class="has-header">
+        <ion-list id="turmas-list">
+            <ion-item ng-repeat="turma in turmas.data" ng-click="editRecord(turma)">
+                <h2>{{turma.nome}}</h2>
+                <p>{{turma.descricao}}</p>
+                <ion-option-button class="button-assertive" ng-click="deleteRecord(turma)">
+                    Excluir
+                </ion-option-button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

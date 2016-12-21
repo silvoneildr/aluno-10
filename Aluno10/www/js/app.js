@@ -8,7 +8,6 @@
 angular.module('app', [
     'ionic',
     'app.dao',
-    'app.cadform',
     'app.popups',
     'app.alunos',
     'app.escolas',
@@ -20,16 +19,13 @@ angular.module('app', [
     'app.inicio',
     'app.layout',
     'app.mensagens',
-    'app.my-select',
-    'app.directives',
-    'app.services'
+    'app.my-select'
 ])
-.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
-    $ionicConfigProvider.tabs.position('bottom'),  
+.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('layout', {
           abstract: true,
-          templateUrl: 'app/views/layout.html',
+          templateUrl: 'app/layout/layout.html',
           controller: 'layoutCtrl'
       })
       
@@ -37,7 +33,7 @@ angular.module('app', [
           url: '/Alunos',
           views: {
             'side-menu21': {
-              templateUrl: 'app/views/alunos.html',
+              templateUrl: 'app/alunos/alunos.html',
               controller: 'alunosCtrl'
             }
           }
@@ -47,7 +43,7 @@ angular.module('app', [
           url: '/Escolas',
           views: {
             'side-menu21': {
-              templateUrl: 'app/views/escolas.html',
+              templateUrl: 'app/escolas/escolas.html',
               controller: 'escolasCtrl'
             }
           }
@@ -57,7 +53,7 @@ angular.module('app', [
           url: '/Turmas',
           views: {
             'side-menu21': {
-              templateUrl: 'app/views/turmas.html',
+              templateUrl: 'app/turmas/turmas.html',
               controller: 'turmasCtrl'
             }
           }
@@ -67,7 +63,7 @@ angular.module('app', [
           url: '/Disciplinas',
           views: {
             'side-menu21': {
-              templateUrl: 'app/views/disciplinas.html',
+              templateUrl: 'app/disciplinas/disciplinas.html',
               controller: 'disciplinasCtrl'
             }
           }
@@ -77,7 +73,7 @@ angular.module('app', [
           url: '/cad_disciplinas/:id',
           views: {
             'side-menu21': {
-              templateUrl: 'app/views/cad_disciplinas.html',
+              templateUrl: 'app/disciplinas/cad_disciplinas.html',
               controller: 'cad_disciplinasCtrl'
             }
           }
@@ -87,7 +83,7 @@ angular.module('app', [
           url: '/Frequencia/:disciplinaId',
           views: {
             'side-menu21': {
-              templateUrl: 'app/views/frequencias.html',
+              templateUrl: 'app/frequencia/frequencias.html',
               controller: 'frequenciasCtrl'
             }
           }
@@ -97,7 +93,7 @@ angular.module('app', [
           url: '/Lista/:id',
           views: {
             'side-menu21': {
-              templateUrl: 'app/views/alunos_disciplinas.html',
+              templateUrl: 'app/alunos-disciplinas/alunos_disciplinas.html',
               controller: 'alunos_disciplinasCtrl'
             }
           }
@@ -107,7 +103,7 @@ angular.module('app', [
           url: '/Inicio',
           views: {
             'side-menu21': {
-              templateUrl: 'app/views/inicio.html',
+              templateUrl: 'app/inicio/inicio.html',
               controller: 'inicioCtrl'
             }
           }

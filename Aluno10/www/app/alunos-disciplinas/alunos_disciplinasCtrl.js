@@ -1,5 +1,24 @@
 angular.module('app.alunos.disciplinas', [])
-.controller('alunos_disciplinasCtrl', function($scope, $stateParams, $ionicModal, daoFactory, msgFactory){
+.config(function($stateProvider, $urlRouterProvider) {
+	$stateProvider
+		.state('tabs', {
+				abstract: true,
+				templateUrl: 'app/alunos-disciplinas/alunos_disciplinas.html'
+		})
+		.state('tabs.lista', {
+				url: '/Lista',
+				views: {
+					'tab-lista': {
+						templateUrl: 'app/lista-de-alunos/listaAlunos.html',
+						controller: 'listaAlunosCtrl'
+					}
+				}
+		})
+
+	$urlRouterProvider.otherwise('/tabs');
+})
+
+.controller('alunos_disciplinasCtrl', function($scope, $stateParams, $ionicModal, daoFactory, msgFactory){ 
 
 	$scope.disciplinas = daoFactory.getDisciplinas();
 	$scope.turmas = daoFactory.getTurmas();
@@ -7,7 +26,7 @@ angular.module('app.alunos.disciplinas', [])
 	$scope.alunos = daoFactory.getAlunos();
 	$scope.selected = false;
 		
-	$ionicModal.fromTemplateUrl('app/views/addAlunos.html', {
+	$ionicModal.fromTemplateUrl('app/alunos-disciplinas/addAlunos.html', {
     	scope: $scope
     }).then(function(modal){
     	$scope.modal = modal;
