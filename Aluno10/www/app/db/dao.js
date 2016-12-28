@@ -6,6 +6,7 @@ angular.module('app.dao',[])
         disciplinas = db.createDataSet('disciplinas'),
         turmas = db.createDataSet('turmas'),
         frequencias = db.createDataSet('frequencias'),
+        avaliacoes = db.createDataSet('avaliacoes'),
         alunosDisciplina = db.createDataSet('alunosDisciplina');
     
     return {
@@ -26,6 +27,9 @@ angular.module('app.dao',[])
         },
         getAlunosDisciplina: function(){
             return alunosDisciplina.open();
+        },
+        getAvaliacoes: function(){
+            return avaliacoes.open();
         }
     }
 });

@@ -29,11 +29,15 @@ angular.module('app.disciplinas', [])
         $scope.popover.hide();
     };
 
+    $scope.addAlunos = function(){
+        $state.go('layout.alunos_disciplinas',{id: $scope.disciplina.id});
+    };
+    
     $scope.addFrequencia = function(){
         $state.go('layout.frequencias',{disciplinaId: $scope.disciplina.id});
     };
 
-    $scope.addAlunos = function(){
-        $state.go('layout.alunos_disciplinas',{id: $scope.disciplina.id});
-    };
+    $scope.addAvaliacoes = function(){
+        $state.go('layout.avaliacoes',{disciplinaId: $scope.disciplina.id});
+    }
 });

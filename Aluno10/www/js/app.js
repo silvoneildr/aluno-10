@@ -16,6 +16,7 @@ angular.module('app', [
     'app.alunos.disciplinas',
     'app.turmas',
     'app.frequencias',
+    'app.avaliacoes',
     'app.inicio',
     'app.layout',
     'app.mensagens',
@@ -85,6 +86,16 @@ angular.module('app', [
             'side-menu21': {
               templateUrl: 'app/frequencia/frequencias.html',
               controller: 'frequenciasCtrl'
+            }
+          }
+      })
+
+      .state('layout.avaliacoes', {
+          url: '/Avaliacoes/:disciplinaId',
+          views: {
+            'side-menu21': {
+              templateUrl: 'app/avaliacoes/avaliacoes.html',
+              controller: 'avaliacoesCtrl'
             }
           }
       })

@@ -9,8 +9,6 @@ angular.module('app.frequencias', [])
         
     $scope.frequencias = daoFactory.getFrequencias();
 
-    $scope.removeItem = true;
-
     $ionicModal.fromTemplateUrl('app/frequencia/cad_frequencias.html',{
         scope: $scope
     }).then(function(modal){
