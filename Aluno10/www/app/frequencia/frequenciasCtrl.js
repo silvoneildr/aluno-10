@@ -9,7 +9,9 @@ angular.module('app.frequencias', [])
         
     $scope.frequencias = daoFactory.getFrequencias();
 
-    $ionicModal.fromTemplateUrl('app/views/cad_frequencias.html',{
+    $scope.removeItem = true;
+
+    $ionicModal.fromTemplateUrl('app/frequencia/cad_frequencias.html',{
         scope: $scope
     }).then(function(modal){
         $scope.modal = modal;
@@ -29,14 +31,17 @@ angular.module('app.frequencias', [])
         $scope.modal.show();
     };
 
-    $scope.saveRecord = function(){
+    $scope.saveRecord = function(frequencia){
+        console.log(frequencia);
+        console.log($scope.frequencia);
+
         $scope.frequencia.disciplinaId = $stateParams.disciplinaId;
         $scope.frequencias.save($scope.frequencia);
         $scope.frequencias.post();
         $scope.closeModal();
     };
 
-    popupFactory.startPopup('./app/views/popup_frequencias.html', $scope);
+    popupFactory.startPopup('./app/frequencia/popup_frequencias.html', $scope);
 
     $scope.openPopover = function(frequencia, event){
         $scope.frequencia = frequencia;

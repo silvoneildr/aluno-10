@@ -1,13 +1,18 @@
 <ion-view title="Alunos">
-    <ion-tabs class="tabs-striped tabs-bottom tabs-color-positive">
-        <ion-tab icon-on="ion-ios-people" icon-off="ion-ios-people-outline">
-            <ion-nav-view name="tab-lista"></ion-nav-view>
-        </ion-tab>
-        <ion-tab icon-on="ion-ios-calendar" icon-off="ion-ios-calendar-outline">
-            <ion-nav-view name="tab-frequencia"></ion-nav-view>
-        </ion-tab>
-        <ion-tab icon-on="ion-ios-paper" icon-off="ion-ios-paper-outline">
-            <ion-nav-view name="tab-notas"></ion-nav-view>
-        </ion-tab>
-    </ion-tabs>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-plus-round" ng-click="showAlunos()"></button>
+    </ion-nav-buttons>
+    <ion-content padding="true" class="has-header">
+        <div class="item item-divider">
+            <h2>{{disciplina.nome}}</h2>
+        </div>
+        <ion-list id="alunos-disciplinas-list">
+            <ion-item ng-repeat="aluno in disciplina.alunos">
+                <h2>{{aluno.numero}} - {{aluno.nome}}</h2>
+                <ion-option-button class="button-assertive" ng-click="deleteAluno(aluno)">
+                    Excluir
+                </ion-option-button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
 </ion-view>
