@@ -1,9 +1,11 @@
 angular.module('app.frequencias', [])
-.controller('frequenciasCtrl', function($scope, $ionicModal, $ionicPopover, $stateParams, popupFactory, daoFactory, msgFactory){
+.controller('frequenciasCtrl', function($scope, $ionicModal, $ionicPopover, $stateParams, daoFactory, msgFactory){
     $scope.refresh = function(){
         $scope.listaFrequencias = daoFactory.getFrequencias()
             .filter({ disciplinaId: parseInt($stateParams.disciplinaId)});
     };
+
+    $scope.refresh();
 
     $scope.disciplina = daoFactory.getDisciplinas()
         .getById(parseInt($stateParams.disciplinaId));
@@ -37,21 +39,13 @@ angular.module('app.frequencias', [])
         $scope.closeModal();
         $scope.refresh();
     };
-
-    popupFactory.startPopup('./app/frequencia/popup_frequencias.html', $scope);
-
-    $scope.openPopover = function(frequencia, event){
-        $scope.frequencia = frequencia;
-        $scope.popover.show(event);
-    };
     
     $scope.deleteRecord = function(frequencia){
         msgFactory.confirm('Deseja excluir a frequencia?').then(function(res) {
             if (!res) return;
             $scope.frequencias.delete(frequencia);
             $scope.frequencias.post();
+            $scope.refresh();
         });
-        $scope.refresh();
-        $scope.popover.hide();
     };
 })
