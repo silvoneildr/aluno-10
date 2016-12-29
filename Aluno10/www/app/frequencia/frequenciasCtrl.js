@@ -1,8 +1,9 @@
 angular.module('app.frequencias', [])
 .controller('frequenciasCtrl', function($scope, $ionicModal, $ionicPopover, $stateParams, popupFactory, daoFactory, msgFactory){
-
-    $scope.listaFrequencias = daoFactory.getFrequencias()
-        .filter({ disciplinaId: parseInt($stateParams.disciplinaId)});
+    $scope.refresh = function(){
+        $scope.listaFrequencias = daoFactory.getFrequencias()
+            .filter({ disciplinaId: parseInt($stateParams.disciplinaId)});
+    };
 
     $scope.disciplina = daoFactory.getDisciplinas()
         .getById(parseInt($stateParams.disciplinaId));
@@ -29,14 +30,12 @@ angular.module('app.frequencias', [])
         $scope.modal.show();
     };
 
-    $scope.saveRecord = function(frequencia){
-        console.log(frequencia);
-        console.log($scope.frequencia);
-
+    $scope.saveRecord = function(){
         $scope.frequencia.disciplinaId = $stateParams.disciplinaId;
         $scope.frequencias.save($scope.frequencia);
         $scope.frequencias.post();
         $scope.closeModal();
+        $scope.refresh();
     };
 
     popupFactory.startPopup('./app/frequencia/popup_frequencias.html', $scope);
@@ -46,12 +45,13 @@ angular.module('app.frequencias', [])
         $scope.popover.show(event);
     };
     
-    $scope.deleteRecord = function(){
+    $scope.deleteRecord = function(frequencia){
         msgFactory.confirm('Deseja excluir a frequencia?').then(function(res) {
             if (!res) return;
-            $scope.frequencias.delete($scope.frequencia);
+            $scope.frequencias.delete(frequencia);
             $scope.frequencias.post();
         });
+        $scope.refresh();
         $scope.popover.hide();
     };
 })

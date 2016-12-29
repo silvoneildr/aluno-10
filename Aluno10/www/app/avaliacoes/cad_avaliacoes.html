@@ -7,11 +7,15 @@
         <div class="list">
             <label class="item item-input">
                 <span class="input-label">Data</span>
-                <input type="date" ng-model="frequencia.data_freq">
+                <input type="date" ng-model="avaliacao.data_aval">
             </label>
             <label class="item item-input">
-                <span class="input-label">Qtde Aulas</span>
-                <input type="text" ng-model="frequencia.qtde">
+                <span class="input-label">Descrição</span>
+                <input type="text" ng-model="avaliacao.descricao">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Valor</span>
+                <input type="text" ng-model="avaliacao.pontos">
             </label>
             <button class="button button-full button-positive" ng-click="saveRecord()">Confirmar</button>
         </div>
