@@ -8,7 +8,7 @@
         </ion-item>
         <ion-list id="frequencias-list">
             <ion-item ng-repeat="frequencia in listaFrequencias" class="item-icon-right">
-                <h2>Data: {{frequencia.data_freq | date:"dd/MM/yyyy"}} - {{(frequencia.qtde || 0) | number}}</h2>
+                <h2>{{frequencia.data_freq | date:"dd/MM/yyyy"}} - {{(frequencia.qtde || 0) | number}}</h2>
                 <ion-option-button class="button-assertive" ng-click="deleteRecord(frequencia)">
                     Excluir
                 </ion-option-button>
