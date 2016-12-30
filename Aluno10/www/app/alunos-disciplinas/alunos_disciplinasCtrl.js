@@ -1,23 +1,4 @@
 angular.module('app.alunos.disciplinas', [])
-.config(function($stateProvider, $urlRouterProvider) {
-	$stateProvider
-		.state('tabs', {
-				abstract: true,
-				templateUrl: 'app/alunos-disciplinas/alunos_disciplinas.html'
-		})
-		.state('tabs.lista', {
-				url: '/Lista',
-				views: {
-					'tab-lista': {
-						templateUrl: 'app/lista-de-alunos/listaAlunos.html',
-						controller: 'listaAlunosCtrl'
-					}
-				}
-		})
-
-	$urlRouterProvider.otherwise('/tabs');
-})
-
 .controller('alunos_disciplinasCtrl', function($scope, $stateParams, $ionicModal, daoFactory, msgFactory){ 
 
 	$scope.disciplinas = daoFactory.getDisciplinas();

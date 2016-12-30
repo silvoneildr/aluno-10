@@ -1,5 +1,6 @@
 angular.module('app.frequencias', [])
-.controller('frequenciasCtrl', function($scope, $ionicModal, $ionicPopover, $stateParams, daoFactory, msgFactory){
+.controller('frequenciasCtrl', function($scope, $state, $ionicModal, $ionicPopover, $stateParams,
+daoFactory, msgFactory, modalFactory){
     $scope.refresh = function(){
         $scope.listaFrequencias = daoFactory.getFrequencias()
             .filter({ disciplinaId: parseInt($stateParams.disciplinaId)});
@@ -7,25 +8,15 @@ angular.module('app.frequencias', [])
 
     $scope.refresh();
 
-    $scope.disciplina = daoFactory.getDisciplinas()
-        .getById(parseInt($stateParams.disciplinaId));
-        
+    $scope.disciplina = daoFactory.getDisciplinas().getById(parseInt($stateParams.disciplinaId));
     $scope.frequencias = daoFactory.getFrequencias();
-
-    $ionicModal.fromTemplateUrl('app/frequencia/cad_frequencias.html',{
-        scope: $scope
-    }).then(function(modal){
-        $scope.modal = modal;
-    });
-        
-    $scope.$on('$destroy', function() {
-        $scope.modal.remove();
-    });
     
+    modalFactory.showModal('app/frequencia/cad_frequencias.html', $scope);
+   
     $scope.closeModal = function() {
         $scope.modal.hide();
     };
-
+    
     $scope.addRecord = function() {
         $scope.frequencia = {};
         $scope.inserting = true;
@@ -48,4 +39,11 @@ angular.module('app.frequencias', [])
             $scope.refresh();
         });
     };
+
+    $scope.addFrequencia = function(frequencia){
+        $state.go('layout.addFrequencias',{
+            disciplinaId: $scope.disciplina.id, 
+            frequenciaId: frequencia.id
+        });
+    }
 })

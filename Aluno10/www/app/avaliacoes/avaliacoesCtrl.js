@@ -1,5 +1,6 @@
 angular.module('app.avaliacoes', [])
-.controller('avaliacoesCtrl', function($scope, $ionicModal, $ionicPopover, $stateParams, popupFactory, daoFactory, msgFactory){
+.controller('avaliacoesCtrl', function($scope, $ionicModal, $ionicPopover, $stateParams, 
+    popupFactory, daoFactory, msgFactory){
 
     $scope.refresh = function(){
         $scope.listaAvaliacoes = daoFactory.getAvaliacoes()

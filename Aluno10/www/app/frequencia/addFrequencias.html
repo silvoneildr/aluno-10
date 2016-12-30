@@ -1,17 +1,19 @@
-<ion-modal-view>
+<ion-view>
     <ion-header-bar class="bar bar-header bar-positive">
         <h1 class="title">Lista de Frequência</h1>
         <button ng-click="closeModal()" class="button button-clear ion-close-round"></button>
     </ion-header-bar>
     <ion-content class="padding">
-        <ion-checkbox class ="checkbox-positive" ng-click="checkAll()">
+        <ion-checkbox class = "item-checkbox-right checkbox-positive" ng-click="checkAll()">
             Marcar ou desmarcar todos
         </ion-checkbox>
-        <ion-list id="alunos-list">
-            <ion-checkbox ng-repeat="aluno in alunos.data" ng-model="aluno.isChecked" ng-checked="aluno.isChecked">
+        <ion-list id="alunos-frequencias-list">
+            <ion-checkbox class="item-checkbox-right checkbox-balanced" 
+                ng-repeat="aluno in disciplina.alunos"
+                ng-model="aluno.isPresent">
                 {{aluno.numero}} - {{aluno.nome}}
             </ion-checkbox>
-            <button class="button button-full button-positive" ng-click="addAlunos()">Confirma</button>
+            <button class="button button-full button-positive" ng-click="addFreqAlunos()">Confirma</button>
         </ion-list>
     </ion-content>
-</ion-modal-view>
+</ion-view>
