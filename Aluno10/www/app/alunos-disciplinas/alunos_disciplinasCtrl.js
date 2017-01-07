@@ -1,22 +1,21 @@
 angular.module('app.alunos.disciplinas', [])
-.controller('alunos_disciplinasCtrl', function($scope, $stateParams, $ionicModal, daoFactory, msgFactory){ 
+.controller('alunos_disciplinasCtrl', function($scope, $stateParams, $ionicModal, daoFactory, msgFactory){
 
-	$scope.disciplinas = daoFactory.getDisciplinas();
-	$scope.turmas = daoFactory.getTurmas();
-	$scope.disciplina = daoFactory.getDisciplinas().getById(parseInt($stateParams.id));
-	$scope.alunos = daoFactory.getAlunos();
-	$scope.selected = false;
-		
-	$ionicModal.fromTemplateUrl('app/alunos-disciplinas/addAlunos.html', {
+    $scope.selected    = false;
+    $scope.disciplinas = daoFactory.getDisciplinas();
+    $scope.turmas      = daoFactory.getTurmas();
+    $scope.alunos       = daoFactory.getAlunos();
+    $scope.disciplina   = daoFactory.getDisciplinas().getById(parseInt($stateParams.id));
+
+    $ionicModal.fromTemplateUrl('app/alunos-disciplinas/addAlunos.html', {
     	scope: $scope
-    }).then(function(modal){
-    	$scope.modal = modal;
-    });
-
-	$scope.$on('$destroy', function() {
+        }).then(function(modal){
+            $scope.modal = modal;
+        });
+        $scope.$on('$destroy', function() {
         $scope.modal.remove();
     });
-    
+
     $scope.closeModal = function() {
         $scope.modal.hide();
     };
@@ -31,7 +30,7 @@ angular.module('app.alunos.disciplinas', [])
 	$scope.checkAll = function(){
 		$scope.selected = !$scope.selected;
 		for (var i = 0; i < $scope.alunos.data.length ; i++) {
-			$scope.alunos.data[i].isChecked = $scope.selected; 
+			$scope.alunos.data[i].isChecked = $scope.selected;
 		}
 	};
 
@@ -45,7 +44,7 @@ angular.module('app.alunos.disciplinas', [])
 				var index = $scope.disciplina.alunos
 					.map(function(item) { return item.id;})
 					.indexOf($scope.alunos.data[i].id);
-				
+
 				if (index < 0){
 					$scope.disciplina.alunos.push($scope.alunos.data[i]);
 				}

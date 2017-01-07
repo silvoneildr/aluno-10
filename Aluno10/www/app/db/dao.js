@@ -3,12 +3,12 @@ angular.module('app.dao',[])
     var db = new DbFactory(DbProxies.LOCALSTORAGE),
         alunos = db.createDataSet('alunos'),
         escolas = db.createDataSet('escolas'),
-        disciplinas = db.createDataSet('disciplinas'),
         turmas = db.createDataSet('turmas'),
+        disciplinas = db.createDataSet('disciplinas'),
         frequencias = db.createDataSet('frequencias'),
-        avaliacoes = db.createDataSet('avaliacoes'),
-        alunosDisciplina = db.createDataSet('alunosDisciplina');
-    
+        alunosFrequencia = db.createDataSet('alunosFrequencia');
+        avaliacoes = db.createDataSet('avaliacoes');
+
     return {
         getAlunos: function() {
             return alunos.open();
@@ -16,17 +16,17 @@ angular.module('app.dao',[])
         getEscolas: function() {
             return escolas.open();
         },
-        getDisciplinas: function() {
-            return disciplinas.open();
-        },
         getTurmas: function(){
             return turmas.open();
+        },
+        getDisciplinas: function() {
+            return disciplinas.open();
         },
         getFrequencias: function(){
             return frequencias.open();
         },
-        getAlunosDisciplina: function(){
-            return alunosDisciplina.open();
+        getAlunosFrequencia: function(){
+            return alunosFrequencia.open();
         },
         getAvaliacoes: function(){
             return avaliacoes.open();
