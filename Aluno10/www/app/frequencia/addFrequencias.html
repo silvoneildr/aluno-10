@@ -8,11 +8,13 @@
             Marcar ou desmarcar todos
         </ion-checkbox>
         <ion-list id="alunos-frequencias-list">
-            <ion-checkbox class="item-checkbox-right checkbox-balanced" ng-repeat="aluno in lista"
+            <ion-checkbox class="item-checkbox-right checkbox-balanced" ng-repeat="aluno in frequencia.alunos"
                 ng-model="aluno.presente">
-                {{alunos.getById(aluno).numero}} - {{alunos.getById(aluno).nome}}
+                {{alunos.getById(aluno.idAluno).numero}} - {{alunos.getById(aluno.idAluno).nome}}
             </ion-checkbox>
-            <button class="button button-full button-positive" ng-click="addFreqAlunos()">Confirma</button>
+            <button class="button button-full button-positive" ng-click="editFrequencia(frequencia.alunos)">
+                Confirma
+            </button>
         </ion-list>
     </ion-content>
 </ion-view>

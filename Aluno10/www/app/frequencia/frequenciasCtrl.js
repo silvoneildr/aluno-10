@@ -24,7 +24,18 @@ daoFactory, msgFactory, modalFactory){
     };
 
     $scope.saveRecord = function(){
+        
+        $scope.listaDeAlunos = [];
+
+        for (var i = 0; i < $scope.disciplina.alunos.length ; i++) {
+            $scope.listaDeAlunos.push({
+                idAluno: $scope.disciplina.alunos[i],
+                presente: true
+            });
+        };
+
         $scope.frequencia.disciplinaId = $stateParams.disciplinaId;
+        $scope.frequencia.alunos = $scope.listaDeAlunos;
         $scope.frequencias.save($scope.frequencia);
         $scope.frequencias.post();
         $scope.closeModal();
