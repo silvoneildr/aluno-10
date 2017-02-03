@@ -2,17 +2,23 @@ angular.module('app.addFrequencias', [])
 .controller('addFrequenciasCtrl', function($scope, $state, $stateParams, daoFactory){
 
     $scope.selected = false;
-    $scope.disciplinas = daoFactory.getDisciplinas();
-    $scope.frequencias = daoFactory.getFrequencias();
     $scope.disciplina = daoFactory.getDisciplinas().getById(parseInt($stateParams.disciplinaId));
-    $scope.frequencia = daoFactory.getAlunosFrequencia().getById(parseInt($stateParams.frequenciaId));
     $scope.alunosFrequencia = daoFactory.getAlunosFrequencia();
-    $scope.listaAlunos = $scope.disciplina.alunos;
+    $scope.alunos = daoFactory.getAlunos();
+
+    $scope.lista = $scope.disciplina.alunos;
+
+    // if (!result) {
+    //     $scope.Lista = $scope.disciplina.alunos;
+    // } else {
+    //     $scope.Lista = result;
+    // }
 
     $scope.checkAll = function(){
-		$scope.selected = !$scope.selected;
-		for (var i = 0; i < $scope.disciplina.alunos.length ; i++) {
-			$scope.disciplina.alunos[i].isPresent = $scope.selected;
+        $scope.selected = !$scope.selected;
+		
+        for (var i = 0; i < $scope.disciplina.alunos.length ; i++) {
+			$scope.disciplina.alunos[i].presente = $scope.selected;
 		}
 	};
 
@@ -23,16 +29,17 @@ angular.module('app.addFrequencias', [])
 
     $scope.addFreqAlunos = function(){
         if (!$scope.listaFrequencias) {
-                $scope.listaFrequencias = [];
+            $scope.listaFrequencias = [];
         };
 
         for (var i = 0; i < $scope.disciplina.alunos.length ; i++) {
-                $scope.listaFrequencias.push({
-                    idFrequencia: parseInt($stateParams.frequenciaId),
-                    idAluno: $scope.disciplina.alunos[i].id,
-                    presente: $scope.disciplina.alunos[i].isPresent
-                });
+            $scope.listaFrequencias.push({
+                idFrequencia: parseInt($stateParams.frequenciaId),
+                idAluno: $scope.disciplina.alunos[i],
+                presente: true
+            });
         };
+
         $scope.save($scope.listaFrequencias);
         $state.go('layout.frequencias',{disciplinaId: $scope.disciplina.id});
     };

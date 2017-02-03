@@ -4,8 +4,8 @@ angular.module('app.alunos.disciplinas', [])
     $scope.selected    = false;
     $scope.disciplinas = daoFactory.getDisciplinas();
     $scope.turmas      = daoFactory.getTurmas();
-    $scope.alunos       = daoFactory.getAlunos();
-    $scope.disciplina   = daoFactory.getDisciplinas().getById(parseInt($stateParams.id));
+    $scope.alunos      = daoFactory.getAlunos();
+    $scope.disciplina  = daoFactory.getDisciplinas().getById(parseInt($stateParams.id));
 
     $ionicModal.fromTemplateUrl('app/alunos-disciplinas/addAlunos.html', {
     	scope: $scope
@@ -46,7 +46,7 @@ angular.module('app.alunos.disciplinas', [])
 					.indexOf($scope.alunos.data[i].id);
 
 				if (index < 0){
-					$scope.disciplina.alunos.push($scope.alunos.data[i]);
+					$scope.disciplina.alunos.push($scope.alunos.data[i].id);
 				}
 			};
 		};
