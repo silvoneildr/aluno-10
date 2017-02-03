@@ -35,7 +35,17 @@ angular.module('app.avaliacoes', [])
     };
 
     $scope.saveRecord = function(){
+        $scope.listaDeAlunos = [];
+
+        for (var i = 0; i < $scope.disciplina.alunos.length ; i++) {
+            $scope.listaDeAlunos.push({
+                idAluno: $scope.disciplina.alunos[i],
+                nota: 0
+            });
+        };
+
         $scope.avaliacao.disciplinaId = $stateParams.disciplinaId;
+        $scope.avaliacao.alunos = $scope.listaDeAlunos;
         $scope.avaliacoes.save($scope.avaliacao);
         $scope.avaliacoes.post();
         $scope.closeModal();
