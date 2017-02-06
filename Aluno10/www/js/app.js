@@ -22,7 +22,8 @@ angular.module('app', [
     'app.mensagens',
     'app.my-select',
     'app.modal-factory',
-    'app.addFrequencias'
+    'app.alunos-frequencias',
+    'app.alunos-avaliacoes'
 ])
 .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
@@ -112,12 +113,22 @@ angular.module('app', [
           }
       })
 
-      .state('layout.addFrequencias', {
-          url: '/addFrequencias/:disciplinaId, :frequenciaId',
+      .state('layout.alunos-frequencias', {
+          url: '/ListaFrequencia/:disciplinaId, :frequenciaId',
           views: {
             'side-menu21': {
-              templateUrl: 'app/frequencia/addFrequencias.html',
-              controller: 'addFrequenciasCtrl'
+              templateUrl: 'app/alunos-frequencias/alunos-frequencias.html',
+              controller: 'alunos-frequenciasCtrl'
+            }
+          }
+      })
+
+      .state('layout.alunos-avaliacoes', {
+          url: '/ListaAvaliacao/:disciplinaId, :avaliacaoId',
+          views: {
+            'side-menu21': {
+              templateUrl: 'app/alunos-avaliacoes/alunos-avaliacoes.html',
+              controller: 'alunos-avaliacoesCtrl'
             }
           }
       })

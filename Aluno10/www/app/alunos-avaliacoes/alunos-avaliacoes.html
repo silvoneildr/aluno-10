@@ -1,0 +1,21 @@
+<ion-view>
+    <ion-header-bar class="bar bar-header bar-positive">
+        <h1 class="title">Lista de Avaliações</h1>
+        <button ng-click="closeModal()" class="button button-clear ion-close-round"></button>
+    </ion-header-bar>
+    <ion-content class="padding">
+        <ion-list>
+                <ion-list id="alunos-avaliacoes-list">
+                    <label class="item item-input" ng-repeat = "aluno in avaliacao.alunos">
+                        <span class="input-label">
+                            {{alunos.getById(aluno.idAluno).numero}} - {{alunos.getById(aluno.idAluno).nome}}
+                        </span>
+                        <input type="number">
+                    </label>
+                </ion-list>
+                <button class="button button-full button-positive" ng-click="editAvaliacao(avaliacao.alunos)">
+                    Confirma
+                </button>
+        </ion-list>
+    </ion-content>
+</ion-view>

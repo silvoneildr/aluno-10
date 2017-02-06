@@ -1,5 +1,5 @@
 angular.module('app.avaliacoes', [])
-.controller('avaliacoesCtrl', function($scope, $ionicModal, $ionicPopover, $stateParams, 
+.controller('avaliacoesCtrl', function($scope, $state, $ionicModal, $ionicPopover, $stateParams, 
     popupFactory, daoFactory, msgFactory){
 
     $scope.refresh = function(){
@@ -9,9 +9,7 @@ angular.module('app.avaliacoes', [])
 
     $scope.refresh();
 
-    $scope.disciplina = daoFactory.getDisciplinas()
-        .getById(parseInt($stateParams.disciplinaId));
-        
+    $scope.disciplina = daoFactory.getDisciplinas().getById(parseInt($stateParams.disciplinaId));
     $scope.avaliacoes = daoFactory.getAvaliacoes();
 
     $ionicModal.fromTemplateUrl('app/avaliacoes/cad_avaliacoes.html', {
@@ -58,6 +56,13 @@ angular.module('app.avaliacoes', [])
             $scope.avaliacoes.delete(avaliacao);
             $scope.avaliacoes.post();
             $scope.refresh();
+        });
+    };
+
+    $scope.addAvaliacao = function(avaliacao){
+        $state.go('layout.alunos-avaliacoes',{
+            disciplinaId: $scope.disciplina.id, 
+            avaliacaoId: avaliacao.id
         });
     };
 })

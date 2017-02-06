@@ -52,7 +52,7 @@ daoFactory, msgFactory, modalFactory){
     };
 
     $scope.addFrequencia = function(frequencia){
-        $state.go('layout.addFrequencias',{
+        $state.go('layout.alunos-frequencias',{
             disciplinaId: $scope.disciplina.id, 
             frequenciaId: frequencia.id
         });

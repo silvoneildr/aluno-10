@@ -1,5 +1,5 @@
-angular.module('app.addFrequencias', [])
-.controller('addFrequenciasCtrl', function($scope, $state, $stateParams, daoFactory){
+angular.module('app.alunos-frequencias', [])
+.controller('alunos-frequenciasCtrl', function($scope, $state, $stateParams, daoFactory){
     $scope.selected    = false;
     $scope.alunos      = daoFactory.getAlunos();
     $scope.disciplina  = daoFactory.getDisciplinas().getById(parseInt($stateParams.disciplinaId));

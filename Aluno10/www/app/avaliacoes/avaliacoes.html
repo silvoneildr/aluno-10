@@ -7,7 +7,8 @@
             <h2>{{disciplina.nome}}</h2>
         </ion-item>
         <ion-list id="avaliacoes-list">
-            <ion-item ng-repeat="avaliacao in listaAvaliacoes" class="item-icon-right">
+            <ion-item ng-repeat="avaliacao in listaAvaliacoes" class="item-icon-right"
+                ng-click="addAvaliacao(avaliacao)">
                 <h2>{{avaliacao.descricao}}</h2>
                 <p>{{avaliacao.data_aval | date:"dd/MM/yyyy"}} - {{(avaliacao.pontos || 0) | number}} pontos</p>
                 <ion-option-button class="button-assertive" ng-click="deleteRecord(avaliacao)">
